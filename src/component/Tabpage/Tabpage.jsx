@@ -2,6 +2,7 @@ import { Box, Typography } from '@material-ui/core'
 import React from 'react'
 
 export default function Tabpage({ children, value, index, ...other }) {
+
     return (
         <div
             role="tabpanel"
