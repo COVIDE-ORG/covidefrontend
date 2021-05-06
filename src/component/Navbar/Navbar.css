@@ -1,0 +1,10 @@
+.navbar {
+    padding: 1%;
+    display: flex;
+    justify-content: space-between;
+    background-color: coral;
+}
+
+.navbar a {
+    text-decoration: none;
+}
