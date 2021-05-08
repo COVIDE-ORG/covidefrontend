@@ -3,6 +3,9 @@
     display: flex;
     justify-content: space-between;
     background-color: coral;
+    position: fixed;
+    width: 98%;
+    z-index: 100;
 }
 
 .navbar a {
