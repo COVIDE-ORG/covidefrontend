@@ -3,11 +3,34 @@
     display: flex;
     justify-content: space-between;
     background-color: coral;
-    position: fixed;
+    /* position: fixed; */
     width: 98%;
-    z-index: 100;
+    /* z-index: 100; */
+}
+
+.navbar >h3{
+    padding: 10px;
 }
 
 .navbar a {
     text-decoration: none;
+}
+
+.nav-links{
+    width:40vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:10px;
+}
+
+.nav-links > li
+{
+    list-style: none;
+}
+
+.links{
+    text-decoration: none;
+    color: black;
+    list-style: none;
 }

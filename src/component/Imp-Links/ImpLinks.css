@@ -1,0 +1,12 @@
+.imp-links
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width:60%;
+    margin-top: 2rem;
+}
+
+.select-btn{
+    width:35%;
+}
