@@ -1,9 +1,11 @@
 import { Button } from '@material-ui/core';
 import React from 'react';
 import indianStates from '../../constant/indiaState';
+import CTable from '../Table/table.component';
 import "./SearchArea.css";
 
 export default function SearchArea() {
+    const [showtable, setval] = React.useState(0);
     return (
         <div className="searchArea">
 
@@ -40,9 +42,16 @@ export default function SearchArea() {
             </div>
 
             <center className="searchArea__mid">
-                <Button variant="contained" color="primary">
+                <Button 
+                    variant="contained" 
+                    color="primary"
+                    onClick={() => setval(1)}
+                >
                     Search
                 </Button>
+                {
+                    showtable? <CTable /> : null
+                }
             </center>
 
         </div>
