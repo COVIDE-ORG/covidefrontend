@@ -1,19 +1,20 @@
 .navbar {
-    padding: 1%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    background-color: coral;
-    /* position: fixed; */
-    width: 98%;
+    background-color: #11698D;
+    color:#F7F1F1;
+    padding:1rem;
     /* z-index: 100; */
 }
 
 .navbar >h3{
-    padding: 10px;
+    padding: 14px;
 }
 
 .navbar a {
     text-decoration: none;
+    color:#F7F1F1;
 }
 
 .nav-links{
@@ -27,10 +28,11 @@
 .nav-links > li
 {
     list-style: none;
+    color:#F7F1F1;
 }
 
 .links{
     text-decoration: none;
-    color: black;
+    color:#F7F1F1;
     list-style: none;
 }
