@@ -1,12 +1,25 @@
 .imp-links
 {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    width:60%;
-    margin-top: 2rem;
+    width:100%;
+    margin:2rem 0;
 }
 
 .select-btn{
-    width:35%;
+    width:80%;
+}
+
+.state-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:50%;
+    margin-right: 2rem;
+    margin-left: 5rem;
+}
+
+.search-btn{
+    margin-left:1rem;
 }
