@@ -1,4 +1,6 @@
-/* .body {
+.body__main {
     margin-top: 5%;
     background-color: #fff;
-} */
+    border-radius: 5px;
+    height: 70vh;
+}
