@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./ImpLinks.css";
 import {Select,MenuItem} from "@material-ui/core";
+<<<<<<< HEAD
 import InputLabel from '@material-ui/core/InputLabel';
 import Button from '@material-ui/core/Button';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
@@ -40,6 +41,8 @@ import Result from './Result';
 //   },
 // });
 
+=======
+>>>>>>> e71ddc54fe49836033a1a7ac84ee9e93819b34d1
 
 function ImpLinks() {
     const [states,setStates]=useState([]);

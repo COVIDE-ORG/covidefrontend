@@ -1,5 +1,4 @@
-import { Box, Typography } from '@material-ui/core'
-import React from 'react'
+import React from 'react';
 
 export default function Tabpage({ children, value, index, ...other }) {
 
@@ -12,9 +11,7 @@ export default function Tabpage({ children, value, index, ...other }) {
             {...other}
         >
             {value === index && (
-                <Box p={3}>
-                    <Typography>{children}</Typography>
-                </Box>
+                <>{children}</>
             )}
         </div>
     )

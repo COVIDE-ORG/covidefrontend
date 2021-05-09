@@ -1,0 +1,18 @@
+.body {
+  position: relative;
+  display: inline-flexbox;
+  justify-content: center;
+  align-items: center;
+  vertical-align:middle;
+  padding: 5% 15%;
+}
+
+.para {
+  margin-bottom: 3%;
+}
+
+.termsButton {
+  position: relative;
+  display:inline-block;
+  margin: auto;
+}
