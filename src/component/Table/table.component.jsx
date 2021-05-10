@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { withStyles, makeStyles, useTheme } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -11,10 +11,8 @@ import TableRow from "@material-ui/core/TableRow";
 import TableHead from "@material-ui/core/TableHead";
 import Paper from "@material-ui/core/Paper";
 import IconButton from "@material-ui/core/IconButton";
-import FirstPageIcon from "@material-ui/icons/FirstPage";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
-import LastPageIcon from "@material-ui/icons/LastPage";
 
 const useStyles1 = makeStyles((theme) => ({
     root: {
@@ -28,10 +26,6 @@ function TablePaginationactions(props) {
     const theme = useTheme();
     const { count, page, rowsPerPage, onChangePage } = props;
 
-    const handleFirstPageButtonClick = (event) => {
-        onChangePage(event, 0);
-    };
-
     const handleBackButtonClick = (event) => {
         onChangePage(event, page - 1);
     };
@@ -40,19 +34,10 @@ function TablePaginationactions(props) {
         onChangePage(event, page + 1);
     };
 
-    const handleLastPageButtonClick = (event) => {
-        onChangePage(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
-    };
 
     return (
         <div className={classes.root}>
-            <IconButton
-                onClick={handleFirstPageButtonClick}
-                disabled={page === 0}
-                aria-label="first page"
-            >
-                {theme.direction === "rtl" ? <LastPageIcon /> : <FirstPageIcon />}
-            </IconButton>
+
             <IconButton
                 onClick={handleBackButtonClick}
                 disabled={page === 0}
@@ -74,13 +59,6 @@ function TablePaginationactions(props) {
                 ) : (
                     <KeyboardArrowRight />
                 )}
-            </IconButton>
-            <IconButton
-                onClick={handleLastPageButtonClick}
-                disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-                aria-label="last page"
-            >
-                {theme.direction === "rtl" ? <FirstPageIcon /> : <LastPageIcon />}
             </IconButton>
         </div>
     );
@@ -110,110 +88,26 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell);
 
 export default function CTable() {
-    const [rows] = React.useState([
-        {
-            id: 1,
-            supdetails: "Sakshi",
-            resouce: "bed",
-            subitem: "oxygen",
-            status: "available",
-            action: "??",
-        },
-        {
-            id: 2,
-            supdetails: "Sakshi",
-            resouce: "bed",
-            subitem: "oxygen",
-            status: "available",
-            action: "??",
-        },
-        {
-            id: 3,
-            supdetails: "Sakshi",
-            resouce: "bed",
-            subitem: "oxygen",
-            status: "available",
-            action: "??",
-        },
-        {
-            id: 4,
-            supdetails: "Sakshi",
-            resouce: "bed",
-            subitem: "oxygen",
-            status: "available",
-            action: "??",
-        },
-        {
-            id: 5,
-            supdetails: "Sakshi",
-            resouce: "bed",
-            subitem: "oxygen",
-            status: "available",
-            action: "??",
-        },
-        {
-            id: 6,
-            supdetails: "Sakshi",
-            resouce: "bed",
-            subitem: "oxygen",
-            status: "available",
-            action: "??",
-        },
-        {
-            id: 7,
-            supdetails: "Sakshi",
-            resouce: "bed",
-            subitem: "oxygen",
-            status: "available",
-            action: "??",
-        },
-        {
-            id: 8,
-            supdetails: "Sakshi",
-            resouce: "bed",
-            subitem: "oxygen",
-            status: "available",
-            action: "??",
-        },
-        {
-            id: 9,
-            supdetails: "Sakshi",
-            resouce: "bed",
-            subitem: "oxygen",
-            status: "available",
-            action: "??",
-        },
-        {
-            id: 10,
-            supdetails: "Sakshi",
-            resouce: "bed",
-            subitem: "oxygen",
-            status: "available",
-            action: "??",
-        },
-        {
-            id: 11,
-            supdetails: "Sakshi",
-            resouce: "bed",
-            subitem: "oxygen",
-            status: "available",
-            action: "??",
-        },
-        {
-            id: 12,
-            supdetails: "Sakshi",
-            resouce: "bed",
-            subitem: "oxygen",
-            status: "available",
-            action: "??",
-        },
-    ]);
+    const [rows, setRows] = useState({ headers: [], data: [] });
+
+    const getData = async () => (
+        await fetch('http://168.62.36.33:8000/api/resource/oxygen')
+            .then(res => res.json())
+    );
+
+    { console.log(rows); }
+
+    useEffect(() => {
+        getData()
+            .then((data) => setRows(data))
+    }, []);
+
     const classes = useStyles2();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
     const emptyRows =
-        rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+        rowsPerPage - Math.min(rowsPerPage, rows.data.length - page * rowsPerPage);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -229,41 +123,29 @@ export default function CTable() {
             <Table className={classes.table} aria-label="custom pagination table">
                 <TableHead>
                     <TableRow>
-                        <StyledTableCell align="center">S.No.</StyledTableCell>
-                        <StyledTableCell align="center">Supplier's Details</StyledTableCell>
-                        <StyledTableCell align="center">Resource</StyledTableCell>
-                        <StyledTableCell align="center">Sub Item</StyledTableCell>
-                        <StyledTableCell align="center">Status</StyledTableCell>
-                        <StyledTableCell align="center">action</StyledTableCell>
+                        {
+                            rows.headers.map((val) => (
+                                <StyledTableCell align="center">{val}</StyledTableCell>
+                            ))
+                        }
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {(rowsPerPage > 0
-                        ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        : rows
-                    ).map((row) => (
-                        <TableRow key={row.id}>
-                            <TableCell style={{ width: 50 }} align="center">
-                                {row.id}
-                            </TableCell>
-                            <TableCell style={{ width: 160 }} align="center">
-                                {row.supdetails}
-                            </TableCell>
-                            <TableCell style={{ width: 160 }} align="center">
-                                {row.resouce}
-                            </TableCell>
-                            <TableCell style={{ width: 160 }} align="center">
-                                {row.subitem}
-                            </TableCell>
-                            <TableCell style={{ width: 160 }} align="center">
-                                {row.status}
-                            </TableCell>
-                            <TableCell style={{ width: 160 }} align="center">
-                                {row.action}
-                            </TableCell>
-                        </TableRow>
-                    ))}
-
+                    {
+                        (rowsPerPage > 0
+                            ? rows.data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            : rows.data
+                        ).map((row) => (
+                            <TableRow>
+                                {
+                                    row.map((inner_value) => (
+                                        <TableCell style={{ width: 160 }} align="center">
+                                            {inner_value}
+                                        </TableCell>
+                                    ))
+                                }
+                            </TableRow>
+                        ))}
                     {emptyRows > 0 && (
                         <TableRow style={{ height: 53 * emptyRows }}>
                             <TableCell colSpan={6} />
@@ -275,7 +157,7 @@ export default function CTable() {
                         <TablePagination
                             rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
                             colSpan={window.screen.width >= 768 ? 7 : 5}
-                            count={rows.length}
+                            count={rows.data.length}
                             rowsPerPage={rowsPerPage}
                             page={page}
                             SelectProps={{
