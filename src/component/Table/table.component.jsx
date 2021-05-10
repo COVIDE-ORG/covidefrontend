@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
 import PropTypes from "prop-types";
 import { withStyles, makeStyles, useTheme } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -88,7 +89,14 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell);
 
 export default function CTable() {
+    const state = useSelector(state => state);
     const [rows, setRows] = useState({ headers: [], data: [] });
+
+    console.log('seleced res',state.data[state.selected_resource]);
+
+    // useEffect(() => {
+    //     setRows(state[state.selected_resource])
+    // }, []);
 
     const getData = async () => (
         await fetch('http://168.62.36.33:8000/api/resource/oxygen')
@@ -97,17 +105,17 @@ export default function CTable() {
 
     { console.log(rows); }
 
-    useEffect(() => {
-        getData()
-            .then((data) => setRows(data))
-    }, []);
+    // useEffect(() => {
+    //     getData()
+    //         .then((data) => setRows(data))
+    // }, []);
 
     const classes = useStyles2();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
     const emptyRows =
-        rowsPerPage - Math.min(rowsPerPage, rows.data.length - page * rowsPerPage);
+        rowsPerPage - Math.min(rowsPerPage, rows?.data?.length - page * rowsPerPage);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -124,8 +132,8 @@ export default function CTable() {
                 <TableHead>
                     <TableRow>
                         {
-                            rows.headers.map((val) => (
-                                <StyledTableCell align="center">{val}</StyledTableCell>
+                            state.headers.map((val, index) => (
+                                <StyledTableCell key={index} align="center">{val}</StyledTableCell>
                             ))
                         }
                     </TableRow>
@@ -133,9 +141,9 @@ export default function CTable() {
                 <TableBody>
                     {
                         (rowsPerPage > 0
-                            ? rows.data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            : rows.data
-                        ).map((row) => (
+                            ? state.data[state.selected_resource].slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            : state.data[state.selected_resource]
+                        ).map((row, index) => (
                             <TableRow>
                                 {
                                     row.map((inner_value) => (

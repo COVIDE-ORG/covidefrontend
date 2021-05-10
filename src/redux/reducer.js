@@ -12,6 +12,10 @@ const INITIAL_STATE = {
     headers: [],
     isError: false,
     isLoading: true,
+    isTable: false,
+    selected_state: '',
+    selected_city: '',
+    selected_resource: '',
 }
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -71,6 +75,26 @@ const reducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 isError: state.isError ? false : true
             };
+        case actionTypes.TOGGLE_TABLE:
+            return {
+                ...state,
+                isTable: state.isTable ? false : true
+            };
+        case actionTypes.SELECT_RESOURCE:
+            return {
+                ...state,
+                selected_resource: action.payload
+            }
+        case actionTypes.SELECT_STATE:
+            return {
+                ...state,
+                selected_state: action.payload
+            }
+        case actionTypes.SELECT_CITY:
+            return {
+                ...state,
+                selected_city: action.payload
+            }
         default:
             return state;
     }

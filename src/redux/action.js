@@ -39,3 +39,22 @@ export const changeError = data => ({
     type: actionTypes.TOGGLE_ERROR,
     payload: data
 });
+
+export const toggleTable = () => ({
+    type: actionTypes.TOGGLE_TABLE,
+});
+
+export const selectResource = data => ({
+    type: actionTypes.SELECT_RESOURCE,
+    payload: data
+});
+
+export const selectState = data => ({
+    type: actionTypes.SELECT_STATE,
+    payload: data
+});
+
+export const selectCity = data => ({
+    type: actionTypes.SELECT_CITY,
+    payload: data
+});

@@ -2,5 +2,14 @@
     margin-top: 5%;
     background-color: #fff;
     border-radius: 5px;
-    height: 70vh;
+    height: auto;
 }
+
+.table {
+    padding: 20px;
+}
+
+/* 
+.body__withTable {
+    height: 120vh;
+} */
