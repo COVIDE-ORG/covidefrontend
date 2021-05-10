@@ -15,6 +15,7 @@ export default function Body() {
             <Tabbar />
             <Tabpage value={currentTab} index={0}>
                 <SearchArea />
+                
             </Tabpage>
             <Tabpage value={currentTab} index={1}>
                 Page Two

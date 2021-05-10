@@ -6,6 +6,14 @@
     height: 60vh;
 }
 
+.searchArea__mid {
+    padding: 5%;
+}
+
+.table {
+    padding: 50px;
+}
+
 .searchArea__top {
     display: flex;
     justify-content: space-between;
