@@ -5,6 +5,7 @@ import Volunteer from './component/Volunteer/Volunteer';
 import ImpLinks from './component/Imp-Links/ImpLinks';
 import Disclaimer from './component/Disclaimer/Disclaimer';
 import Footer from './component/Footer/Footer';
+import Help from './component/AskForHelp/AskForHelp'
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,7 +23,7 @@ function App() {
           <Route exact path='/home' component={Body}/>
           <Route path='/volunteer' component={Volunteer}/>
           <Route path='/imp-links' component={ImpLinks}/>
-          <Route path='/ask-for-help' component={Volunteer}/>
+          <Route path='/ask-for-help' component={Help}/>
         </Switch>
     <Footer/>
     </div>
