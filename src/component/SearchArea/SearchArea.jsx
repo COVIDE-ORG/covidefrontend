@@ -22,7 +22,7 @@ export default function SearchArea() {
         dispatch(selectState(e.target.value));
     }
 
-    const getCity= (e) => {
+    const getCity = (e) => {
         dispatch(selectCity(e.target.value));
     }
 
@@ -39,6 +39,7 @@ export default function SearchArea() {
                 <div className="searchArea__input">
                     <label htmlFor="resource">Covid Resources<span>*</span></label>
                     <select onChange={getData} id="resource">
+                        <option >-</option>
                         <option value="oxygen">Oxygen</option>
                         <option value="beds">Beds</option>
                         <option value="plasma">Plasma</option>
@@ -50,6 +51,7 @@ export default function SearchArea() {
                 <div className="searchArea__input">
                     <label htmlFor="state">State<span>*</span></label>
                     <select id="state" onChange={getState}>
+                        <option >-</option>
                         <option value="all">All State</option>
                         {
                             data.states.map(stateName => <option key={stateName} value={stateName}>{stateName}</option>)
@@ -60,6 +62,7 @@ export default function SearchArea() {
                 <div className="searchArea__input">
                     <label htmlFor="city">City<span>*</span></label>
                     <select id="city" onChange={getCity}>
+                    <option>-</option>
                         {
                             data.cities.map(city => <option key={city} value={city}>{city}</option>)
                         }

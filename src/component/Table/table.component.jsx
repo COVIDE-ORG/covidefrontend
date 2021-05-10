@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from 'react-redux';
 import PropTypes from "prop-types";
 import { withStyles, makeStyles, useTheme } from "@material-ui/core/styles";
@@ -14,6 +14,7 @@ import Paper from "@material-ui/core/Paper";
 import IconButton from "@material-ui/core/IconButton";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+import filterData from "../../utils/filter";
 
 const useStyles1 = makeStyles((theme) => ({
     root: {
@@ -90,32 +91,15 @@ const StyledTableCell = withStyles((theme) => ({
 
 export default function CTable() {
     const state = useSelector(state => state);
-    const [rows, setRows] = useState({ headers: [], data: [] });
 
-    console.log('seleced res',state.data[state.selected_resource]);
-
-    // useEffect(() => {
-    //     setRows(state[state.selected_resource])
-    // }, []);
-
-    const getData = async () => (
-        await fetch('http://168.62.36.33:8000/api/resource/oxygen')
-            .then(res => res.json())
-    );
-
-    { console.log(rows); }
-
-    // useEffect(() => {
-    //     getData()
-    //         .then((data) => setRows(data))
-    // }, []);
+    const filteredData = filterData(state.data[state.selected_resource][0], state.selected_state, state.selected_city);
 
     const classes = useStyles2();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
     const emptyRows =
-        rowsPerPage - Math.min(rowsPerPage, rows?.data?.length - page * rowsPerPage);
+        rowsPerPage - Math.min(rowsPerPage, filteredData * rowsPerPage);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -141,8 +125,8 @@ export default function CTable() {
                 <TableBody>
                     {
                         (rowsPerPage > 0
-                            ? state.data[state.selected_resource].slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            : state.data[state.selected_resource]
+                            ? filteredData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            : filteredData(state.data[state.selected_resource][0], state.selected_city)
                         ).map((row, index) => (
                             <TableRow>
                                 {
@@ -165,7 +149,7 @@ export default function CTable() {
                         <TablePagination
                             rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
                             colSpan={window.screen.width >= 768 ? 7 : 5}
-                            count={rows.data.length}
+                            count={filteredData.length}
                             rowsPerPage={rowsPerPage}
                             page={page}
                             SelectProps={{

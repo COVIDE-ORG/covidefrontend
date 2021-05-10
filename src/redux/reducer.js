@@ -2,11 +2,13 @@ import actionTypes from "./actionTypes";
 
 const INITIAL_STATE = {
     currentTab: 0,
-    oxygen: [],
-    meds: [],
-    ambulance: [],
-    plasma: [],
-    beds: [],
+    data: {
+        oxygen: [],
+        meds: [],
+        ambulance: [],
+        plasma: [],
+        beds: []
+    },
     states: [],
     cities: [],
     headers: [],
