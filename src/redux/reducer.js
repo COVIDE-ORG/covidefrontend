@@ -24,13 +24,18 @@ const reducer = (state = INITIAL_STATE, action) => {
         case actionTypes.ADD_BEDS:
             return {
                 ...state,
+<<<<<<< HEAD
                 beds: [...state.beds, ...action.payload.data],
+=======
+                data: { ...state.data, beds: [action.payload.data] },
+>>>>>>> 29a5cc150e9a1e51bf9d66d422a669d28bb70097
                 headers: action.payload.headers,
                 states: action.payload.states,
                 cities: action.payload.cities
             };
         case actionTypes.ADD_OXYGEN:
             return {
+<<<<<<< HEAD
                 ...state,
                 oxygen: [...state.oxygen, ...action.payload.data],
                 headers: action.payload.headers,
@@ -60,6 +65,37 @@ const reducer = (state = INITIAL_STATE, action) => {
                 headers: action.payload.headers,
                 states: action.payload.states,
                 cities: action.payload.cities
+=======
+              ...state,
+              data: { ...state.data, oxygen: [action.payload.data] },
+              headers: action.payload.headers,
+              states: action.payload.states,
+              cities: action.payload.cities,
+            };
+        case actionTypes.ADD_AMBULANCE:
+            return {
+              ...state,
+              data: { ...state.data, ambulance: [action.payload.data] },
+              headers: action.payload.headers,
+              states: action.payload.states,
+              cities: action.payload.cities,
+            };
+        case actionTypes.ADD_PLASMA:
+            return {
+              ...state,
+              data: { ...state.data, plasma: [action.payload.data] },
+              headers: action.payload.headers,
+              states: action.payload.states,
+              cities: action.payload.cities,
+            };
+        case actionTypes.ADD_MEDS:
+            return {
+              ...state,
+              data: { ...state.data, meds: [action.payload.data] },
+              headers: action.payload.headers,
+              states: action.payload.states,
+              cities: action.payload.cities,
+>>>>>>> 29a5cc150e9a1e51bf9d66d422a669d28bb70097
             };
         case actionTypes.TOGGLE_LOADING:
             return {
