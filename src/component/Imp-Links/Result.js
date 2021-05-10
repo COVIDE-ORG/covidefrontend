@@ -33,10 +33,10 @@ const StyledTableCell = withStyles((theme) => ({
     },
   });
 
-function Result({State,Data}) {
+function Result({State,City,Data}) {
     const classes = useStyles();
     return (
-        <div>
+        <div className="result-div">
             <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
@@ -45,21 +45,21 @@ function Result({State,Data}) {
             <StyledTableCell align="right">City</StyledTableCell>
             <StyledTableCell align="right">Service</StyledTableCell>
             <StyledTableCell align="right">Links</StyledTableCell>
-            <StyledTableCell align="right">Other Infos</StyledTableCell>
+            <StyledTableCell align="right">Other Info</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {Data.filter((data)=>{
-              return State===data.State
+              return State===data.State && City===data.City
           }).map((data) => (
             <StyledTableRow key={data.id}>
               <StyledTableCell component="th" scope="row">
                 {data.State}
               </StyledTableCell>
-              <StyledTableCell align="right">{data.City}</StyledTableCell>
-              <StyledTableCell align="right">{data.Service}</StyledTableCell>
-              <StyledTableCell align="right"><a href={data.Links}><LinkIcon/></a></StyledTableCell>
-              <StyledTableCell align="right">{data.Other}</StyledTableCell>
+              <StyledTableCell align="right">{(data.City ? data.City : 'NA')}</StyledTableCell>
+              <StyledTableCell align="right">{(data.Service ? data.Service : 'NA')}</StyledTableCell>
+              <StyledTableCell align="right"><a href={(data.Links ? data.Links : 'NA')}><LinkIcon/></a></StyledTableCell>
+              <StyledTableCell align="right">{(data.Other ? data.Other : 'NA')}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
