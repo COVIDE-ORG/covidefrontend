@@ -2,19 +2,13 @@ import { Button } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import indianStates from '../../constant/indiaState';
-<<<<<<< HEAD
-=======
 import { getResources } from '../../redux/api';
->>>>>>> 8c2cfd127dcd74297f07a9c7eb11788784de4202
 import CTable from '../Table/table.component';
 import "./SearchArea.css";
 
 
 
 export default function SearchArea() {
-<<<<<<< HEAD
-    const [showtable, setval] = React.useState(0);
-=======
     const [showtable, setval] = useState(0);
 
     const [resource, setResource] = useState("");
@@ -27,7 +21,6 @@ export default function SearchArea() {
 
     const data = useSelector(state => state);
 
->>>>>>> 8c2cfd127dcd74297f07a9c7eb11788784de4202
     return (
         <div className="searchArea">
 
@@ -64,29 +57,18 @@ export default function SearchArea() {
             </div>
 
             <center className="searchArea__mid">
-<<<<<<< HEAD
-                <Button 
-                    variant="contained" 
-=======
                 <Button
                     variant="contained"
->>>>>>> 8c2cfd127dcd74297f07a9c7eb11788784de4202
                     color="primary"
                     onClick={() => setval(1)}
                 >
                     Search
                 </Button>
-<<<<<<< HEAD
-                {
-                    showtable? <CTable /> : null
-                }
-=======
                 <div className='table'>
                     {
                         showtable ? <CTable /> : null
                     }
                 </div>
->>>>>>> 8c2cfd127dcd74297f07a9c7eb11788784de4202
             </center>
 
         </div>

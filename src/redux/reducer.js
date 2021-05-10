@@ -26,23 +26,23 @@ const reducer = (state = INITIAL_STATE, action) => {
         case actionTypes.ADD_BEDS:
             return {
                 ...state,
-                // data.beds: [...state.data.beds, ...action.payload.data],
+                data: { beds: [action.payload.data] },
                 headers: action.payload.headers,
                 states: action.payload.states,
                 cities: action.payload.cities
             };
         case actionTypes.ADD_OXYGEN:
             return {
-                ...state,
-                // data.oxygen: [...state.data.oxygen, ...action.payload.data],
-                headers: action.payload.headers,
-                states: action.payload.states,
-                cities: action.payload.cities
+              ...state,
+              data: { oxygen: [action.payload.data] },
+              headers: action.payload.headers,
+              states: action.payload.states,
+              cities: action.payload.cities,
             };
         case actionTypes.ADD_AMBULANCE:
             return {
                 ...state,
-                // data.ambulance: [...state.data.ambulance, ...action.payload.data],
+                data: { ambulance: [action.payload.data] },
                 headers: action.payload.headers,
                 states: action.payload.states,
                 cities: action.payload.cities
@@ -50,7 +50,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         case actionTypes.ADD_PLASMA:
             return {
                 ...state,
-                // data.plasma: [...state.data.plasma, ...action.payload.data],
+                data: { plasma: [action.payload.data] },
                 headers: action.payload.headers,
                 states: action.payload.states,
                 cities: action.payload.cities
@@ -58,7 +58,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         case actionTypes.ADD_MEDS:
             return {
                 ...state,
-                // data.meds: [...state.data.meds, ...action.payload.data],
+                data: { meds: [action.payload.data] },
                 headers: action.payload.headers,
                 states: action.payload.states,
                 cities: action.payload.cities
