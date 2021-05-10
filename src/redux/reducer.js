@@ -2,13 +2,11 @@ import actionTypes from "./actionTypes";
 
 const INITIAL_STATE = {
     currentTab: 0,
-    data: {
-        oxygen: [],
-        meds: [],
-        ambulance: [],
-        plasma: [],
-        beds: []
-    },
+    oxygen: [],
+    meds: [],
+    ambulance: [],
+    plasma: [],
+    beds: [],
     states: [],
     cities: [],
     headers: [],
@@ -26,7 +24,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         case actionTypes.ADD_BEDS:
             return {
                 ...state,
-                // data.beds: [...state.data.beds, ...action.payload.data],
+                beds: [...state.beds, ...action.payload.data],
                 headers: action.payload.headers,
                 states: action.payload.states,
                 cities: action.payload.cities
@@ -34,7 +32,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         case actionTypes.ADD_OXYGEN:
             return {
                 ...state,
-                // data.oxygen: [...state.data.oxygen, ...action.payload.data],
+                oxygen: [...state.oxygen, ...action.payload.data],
                 headers: action.payload.headers,
                 states: action.payload.states,
                 cities: action.payload.cities
@@ -42,7 +40,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         case actionTypes.ADD_AMBULANCE:
             return {
                 ...state,
-                // data.ambulance: [...state.data.ambulance, ...action.payload.data],
+                ambulance: [...state.ambulance, ...action.payload.data],
                 headers: action.payload.headers,
                 states: action.payload.states,
                 cities: action.payload.cities
@@ -50,7 +48,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         case actionTypes.ADD_PLASMA:
             return {
                 ...state,
-                // data.plasma: [...state.data.plasma, ...action.payload.data],
+                plasma: [...state.plasma, ...action.payload.data],
                 headers: action.payload.headers,
                 states: action.payload.states,
                 cities: action.payload.cities
@@ -58,7 +56,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         case actionTypes.ADD_MEDS:
             return {
                 ...state,
-                // data.meds: [...state.data.meds, ...action.payload.data],
+                meds: [...state.meds, ...action.payload.data],
                 headers: action.payload.headers,
                 states: action.payload.states,
                 cities: action.payload.cities
@@ -67,7 +65,7 @@ const reducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 isLoading: state.isLoading ? false : true
-            }; 
+            };
         case actionTypes.TOGGLE_ERROR:
             return {
                 ...state,
