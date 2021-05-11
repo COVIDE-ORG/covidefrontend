@@ -50,9 +50,11 @@ export default function SearchArea() {
                     <label htmlFor="state">State<span>*</span></label>
                     <select id="state" onChange={getState}>
                         <option >-</option>
-                        <option value="all">All State</option>
+                        <option value="all">All States</option>
                         {
-                            data.states.map(stateName => <option key={stateName} value={stateName}>{stateName}</option>)
+                            data.states.sort().filter((d) => (
+                                d.toLowerCase() !== 'all' 
+                            )).map(stateName => <option key={stateName} value={stateName}>{stateName}</option>)
                         }
                     </select>
                 </div>
@@ -61,8 +63,11 @@ export default function SearchArea() {
                     <label htmlFor="city">City<span>*</span></label>
                     <select id="city" onChange={getCity}>
                     <option>-</option>
+                        <option value="all">All Cities</option>
                         {
-                            data.cities.map(city => <option key={city} value={city}>{city}</option>)
+                            data.cities.sort().filter((d) =>(
+                                d.toLowerCase() !== 'all' 
+                            )).map(city => <option key={city} value={city}>{city}</option>)
                         }
                     </select>
                 </div>
@@ -73,7 +78,7 @@ export default function SearchArea() {
                     variant="contained"
                     color="primary"
                     onClick={data.isTable? null : toggleSearch}
-                    disabled={!data.selected_city}
+                    disabled={!data.selected_state}
                 >
                     Search
                 </Button>
