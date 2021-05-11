@@ -1,5 +1,5 @@
 import { Button } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTable, selectResource, selectState, selectCity } from '../../redux/action';
 import { getResources } from '../../redux/api';
@@ -8,9 +8,7 @@ import "./SearchArea.css";
 
 
 export default function SearchArea() {
-
-    const [resource, setResource] = useState("");
-
+    
     const dispatch = useDispatch();
 
     const getData = (e) => {

@@ -1,6 +1,7 @@
 import { Container } from '@material-ui/core';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import AskForHelp from '../AskForHelp/AskForHelp';
 import SearchArea from '../SearchArea/SearchArea';
 import Tabbar from '../Tabbar/Tabbar';
 import CTable from '../Table/table.component';
@@ -23,7 +24,7 @@ export default function Body() {
                 </div>
             </Tabpage>
             <Tabpage value={state.currentTab} index={1}>
-                Page Two
+                <AskForHelp />
             </Tabpage>
         </Container>
     )

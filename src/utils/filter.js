@@ -10,7 +10,7 @@ const filterByState = (data, state) => {
 
 const filterData = (data, state, city) => {
     if (city.toLowerCase() === 'all') return filterByState(data, state);
-
+    
     return data.filter(val => {
         console.log(val[1], city)
         return val[1] === city
