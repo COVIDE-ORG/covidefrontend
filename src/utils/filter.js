@@ -1,4 +1,5 @@
 const filterByState = (data, state) => {
+    if (!data) return [];
     if (state.toLowerCase() === 'all') return data;
 
     return data.filter(val => {

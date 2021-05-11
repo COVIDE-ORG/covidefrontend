@@ -72,7 +72,7 @@ export default function SearchArea() {
                 <Button
                     variant="contained"
                     color="primary"
-                    onClick={toggleSearch}
+                    onClick={data.isTable? null : toggleSearch}
                     disabled={!data.selected_city}
                 >
                     Search
