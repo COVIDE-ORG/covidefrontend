@@ -24,7 +24,7 @@ export default function Body() {
                 </div>
             </Tabpage>
             <Tabpage value={state.currentTab} index={1}>
-                <AskForHelp />
+                second page
             </Tabpage>
         </Container>
     )

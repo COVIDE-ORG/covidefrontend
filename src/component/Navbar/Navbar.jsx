@@ -16,7 +16,7 @@ export default function Navbar() {
                 <p>#IndiaFightsCorona</p> </a>
 
             </div>
-            {(window.screen.width>= 300 && window.screen.width<=1270) ? <HamBurger/>: <ul className="nav-links">
+            {(window.screen.width>= 300 && window.screen.width<1024) ? <HamBurger/>: <ul className="nav-links">
                 <Link to='/' className="links">
                     <li>Resource</li>
                 </Link>

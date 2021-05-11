@@ -50,9 +50,9 @@ function ImpLinks() {
     function handleClick()
     {
       if(stateName==='' || cityName==='')
-      alert("Please select all the feilds");
+        alert("Please select all the feilds");
       else
-      setClick(true)
+        setClick(true)
     }
     return (
       <div>
