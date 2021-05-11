@@ -1,5 +1,4 @@
 const filterByState = (data, state) => {
-    if (!data) return [];
     if (state.toLowerCase() === 'all') return data;
 
     return data.filter(val => {
@@ -9,8 +8,8 @@ const filterByState = (data, state) => {
 
 
 const filterData = (data, state, city) => {
-    console.log(city);
-    if (city.toLowerCase() === 'all' || city === '') return filterByState(data, state);
+    if (!data) return [];
+    if (city.toLowerCase() === 'all' || city === '-' || city === '') return filterByState(data, state);
     
     return data.filter(val => {
         return val[1] === city

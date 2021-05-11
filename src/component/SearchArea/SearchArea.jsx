@@ -52,9 +52,7 @@ export default function SearchArea() {
                         <option >-</option>
                         <option value="all">All States</option>
                         {
-                            data.states.sort().filter((d) => (
-                                d.toLowerCase() !== 'all' 
-                            )).map(stateName => <option key={stateName} value={stateName}>{stateName}</option>)
+                            data.states.filter((d) => d.toLowerCase() !== 'all' ).sort().map(stateName => <option key={stateName} value={stateName}>{stateName}</option>)
                         }
                     </select>
                 </div>
@@ -65,9 +63,7 @@ export default function SearchArea() {
                     <option>-</option>
                         <option value="all">All Cities</option>
                         {
-                            data.cities.sort().filter((d) =>(
-                                d.toLowerCase() !== 'all' 
-                            )).map(city => <option key={city} value={city}>{city}</option>)
+                            data.cities.filter((d) => d.toLowerCase() !== 'all').sort().map(city => <option key={city} value={city}>{city}</option>)
                         }
                     </select>
                 </div>
