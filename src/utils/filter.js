@@ -12,7 +12,7 @@ const filterData = (data, state, city) => {
     if (city.toLowerCase() === 'all' || city === '-' || city === '') return filterByState(data, state);
     
     return data.filter(val => {
-        return val[1] === city
+        return (val[1] === city && val[0] === state )
     });
 };
 
