@@ -94,6 +94,20 @@ export default function SearchArea() {
                 : null
             }
 
+            {/* {
+                data.bed_selected ?
+                    <div className="searchArea__input">
+                        <label htmlFor="blood_group">Blood Group</label>
+                        <select id="state" onChange={getBloodGroup}>
+                            <option >-</option>
+                            <option value="all">All</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                        </select>
+                    </div>
+                    : null
+            } */}
+
             <center className="searchArea__mid">
                 <Button
                     variant="contained"

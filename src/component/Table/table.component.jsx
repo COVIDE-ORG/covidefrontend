@@ -106,7 +106,7 @@ export default function CTable() {
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
     const emptyRows =
-        rowsPerPage - Math.min(rowsPerPage, filteredData * rowsPerPage);
+        rowsPerPage - Math.min(rowsPerPage, filteredData.length - page * rowsPerPage);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -133,7 +133,7 @@ export default function CTable() {
                     {
                         (rowsPerPage > 0
                             ? filteredData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            : filteredData(state.data[state.selected_resource][0], state.selected_city)
+                            : filteredData
                         ).map((row, index) => (
                             <TableRow>
                                 {
