@@ -24,7 +24,7 @@ export default function Tabbar() {
         <div className="tabbar">
             <Tabs value={currentTab} onChange={handleChange} aria-label="simple tabs example">
                 <Tab label="Search Data" {...getTabProps(0)} />
-                <Tab label="Add Data" {...getTabProps(1)} />
+                {/* <Tab label="Add Data" {...getTabProps(1)} /> */}
             </Tabs>
             
         </div>
