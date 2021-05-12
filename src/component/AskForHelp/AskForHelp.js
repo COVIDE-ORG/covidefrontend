@@ -94,7 +94,7 @@ export default function AskForHelp() {
       querry: query
     }
     if(name && contact && query){
-    fetch('http://168.62.36.33:8000/api/help/crseate', {
+    fetch('http://168.62.36.33:8000/api/help/create', {
       method: 'post',
       headers: {
           'Accept': 'application/json',
