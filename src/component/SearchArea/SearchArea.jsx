@@ -1,7 +1,7 @@
 import { Button } from '@material-ui/core';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleTable, selectResource, selectState, selectCity } from '../../redux/action';
+import { toggleTable, selectResource, selectState, selectCity, selectBloodGroup, plasmaSelected } from '../../redux/action';
 import { getResources } from '../../redux/api';
 import "./SearchArea.css";
 
@@ -14,6 +14,8 @@ export default function SearchArea() {
     const getData = (e) => {
         dispatch(selectResource(e.target.value));
         dispatch(getResources(e.target.value));
+        if (e.target.value === 'plasma')
+            dispatch(plasmaSelected())
     }
 
     const getState = (e) => {
@@ -22,6 +24,10 @@ export default function SearchArea() {
 
     const getCity = (e) => {
         dispatch(selectCity(e.target.value));
+    }
+
+    const getBloodGroup = (e) => {
+        dispatch(selectBloodGroup(e.target.value))
     }
 
     const toggleSearch = () => {
@@ -68,6 +74,25 @@ export default function SearchArea() {
                     </select>
                 </div>
             </div>
+            {
+            data.plasma_selected ? 
+                <div className="searchArea__input">
+                    <label htmlFor="blood_group">Blood Group</label>
+                    <select id="state" onChange={getBloodGroup}>
+                        <option >-</option>
+                        <option value="all">All</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+                : null
+            }
 
             <center className="searchArea__mid">
                 <Button

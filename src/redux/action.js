@@ -44,6 +44,10 @@ export const toggleTable = () => ({
     type: actionTypes.TOGGLE_TABLE,
 });
 
+export const plasmaSelected = () => ({
+  type: actionTypes.PLASMA_SELECT,
+});
+
 export const selectResource = data => ({
     type: actionTypes.SELECT_RESOURCE,
     payload: data
@@ -57,4 +61,9 @@ export const selectState = data => ({
 export const selectCity = data => ({
     type: actionTypes.SELECT_CITY,
     payload: data
+});
+
+export const selectBloodGroup = (data) => ({
+  type: actionTypes.SELECT_BGROUP,
+  payload: data,
 });

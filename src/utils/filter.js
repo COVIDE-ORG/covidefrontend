@@ -7,7 +7,7 @@ const filterByState = (data, state) => {
 }
 
 
-const filterData = (data, state, city) => {
+export const filterData = (data, state, city) => {
     if (!data) return [];
     if (city.toLowerCase() === 'all' || city === '-' || city === '') return filterByState(data, state);
     
@@ -16,11 +16,12 @@ const filterData = (data, state, city) => {
     });
 };
 
-// const filterByPlasma = (filterData, blood_group) => {
-//     return filterData.filter(val => {
-//         return val[3] === blood_group
-//     });
-// };
+export const filterByPlasma = (filterData, blood_group) => {
+    if (blood_group.toLowerCase() === 'all') return filterData;
+    return filterData.filter(val => {
+        return (val[3] === blood_group || val[3].toLowerCase() === 'all' )
+    });
+};
 
 // const filterByBed = (filterData, bed_type) => {
 //     return filterData.filter(val => {
@@ -28,8 +29,3 @@ const filterData = (data, state, city) => {
 //     });
 // };
 
-
-
-
-export default filterData;
-//export default filterByPlasma;

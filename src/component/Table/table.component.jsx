@@ -14,7 +14,7 @@ import Paper from "@material-ui/core/Paper";
 import IconButton from "@material-ui/core/IconButton";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
-import filterData from "../../utils/filter";
+import {filterData, filterByPlasma} from "../../utils/filter";
 
 const useStyles1 = makeStyles((theme) => ({
     root: {
@@ -90,9 +90,16 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell);
 
 export default function CTable() {
+    var filteredData;
     const state = useSelector(state => state);
-
-    const filteredData = filterData(state.data[state.selected_resource][0], state.selected_state, state.selected_city);
+    const mainData = filterData(state.data[state.selected_resource][0], state.selected_state, state.selected_city);
+    if(state.selected_resource === 'plasma'){
+        filteredData = filterByPlasma(mainData, state.selected_bgroup);
+        {console.log(mainData);}
+    }
+    else{
+        filteredData = mainData;
+    }
 
     const classes = useStyles2();
     const [page, setPage] = React.useState(0);
