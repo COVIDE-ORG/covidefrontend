@@ -8,7 +8,6 @@ import "./SearchArea.css";
 
 
 export default function SearchArea() {
-    
     const dispatch = useDispatch();
 
     const getData = (e) => {
@@ -20,8 +19,14 @@ export default function SearchArea() {
 
     const getState = (e) => {
         dispatch(selectState(e.target.value));
+        if (data.state_change)
+            data.unique.splice(0, data.unique.length);
+        data.data[data.selected_resource][0].map((d) => {
+            if (d[0].toLowerCase() === e.target.value.toLowerCase() && data.unique.indexOf(d[1]) === -1)
+                data.unique.push(d[1]);
+        });
     }
-
+    
     const getCity = (e) => {
         dispatch(selectCity(e.target.value));
     }
@@ -51,7 +56,6 @@ export default function SearchArea() {
                         <option value="ambulance">Ambulance</option>
                     </select>
                 </div>
-
                 <div className="searchArea__input">
                     <label htmlFor="state">State<span>*</span></label>
                     <select id="state" onChange={getState}>
@@ -66,10 +70,10 @@ export default function SearchArea() {
                 <div className="searchArea__input">
                     <label htmlFor="city">City<span>*</span></label>
                     <select id="city" onChange={getCity}>
-                    <option>-</option>
+                        <option>-</option>
                         <option value="all">All Cities</option>
                         {
-                            data.cities.filter((d) => d.toLowerCase() !== 'all').sort().map(city => <option key={city} value={city}>{city}</option>)
+                            data.unique.sort().map(city => <option key={city} value={city}>{city}</option>)
                         }
                     </select>
                 </div>

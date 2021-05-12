@@ -135,10 +135,10 @@ export default function CTable() {
                             ? filteredData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             : filteredData
                         ).map((row, index) => (
-                            <TableRow>
+                            <TableRow key={index}>
                                 {
-                                    row.map((inner_value) => (
-                                        <TableCell style={{ width: 160 }} align="center">
+                                    row.map((inner_value, id) => (
+                                        <TableCell key={id} style={{ width: 160 }} align="center">
                                             {inner_value}
                                         </TableCell>
                                     ))

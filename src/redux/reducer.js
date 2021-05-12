@@ -10,6 +10,7 @@ const INITIAL_STATE = {
         beds: []
     },
     states: [],
+    unique: [],
     cities: [],
     headers: [],
     isError: false,
@@ -18,6 +19,7 @@ const INITIAL_STATE = {
     plasma_selected: false,
     selected_bgroup: '',
     selected_state: '',
+    state_change: false,
     selected_city: '',
     selected_resource: '',
 }
@@ -99,6 +101,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         return {
           ...state,
           selected_state: action.payload,
+          state_change: true
         };
       case actionTypes.SELECT_CITY:
         return {
