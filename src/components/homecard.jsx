@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import Table from "./table";
+import Table from "./ResourceTable";
 import "./tabs.css";
 
 const Homecard = () => {
@@ -8,6 +8,9 @@ const Homecard = () => {
   const [filteredData, setFilter] = useState([]);
   const [filteredHeaders, setHeaders] = useState([]);
   const [plasma, setPlasma] = useState([]);
+  const[plasmaIndex,setPlasmaIndex] = useState(null);
+  const[cityIndex,setCityIndex] = useState(null);
+  const[stateIndex,setStateIndex] = useState(null);
 
   useEffect(() => {}, []);
 
@@ -16,18 +19,23 @@ const Homecard = () => {
     document.getElementById("tbs").disabled = true;
     document.getElementById("tbs2").innerHTML = "Please Wait";
     document.getElementById("tbs2").disabled = true;
-    const rname = document.getElementById("rname").value;
+    const rname = document.getElementById("rname").value.toLowerCase();
     if (rname) {
       fetch(`http://168.62.36.33:8000/api/resource/${rname}`)
         .then((response) => response.json())
         .then((data) => {
           setDatas(data);
+          if(rname === "plasma"){
+            setPlasmaIndex(data.headers.indexOf("Blood Group"))
+          }
+          setCityIndex(data.headers.indexOf("City"))
+          setStateIndex(data.headers.indexOf("State"))
           document.getElementById("tbs").innerHTML = "Search";
           document.getElementById("tbs").disabled = false;
           document.getElementById("tbs2").innerHTML = "Search";
           document.getElementById("tbs2").disabled = false;
           document.getElementById("state").selectedIndex = "0";
-          document.getElementById("city").selectedIndex = "0";
+          setcities([]);
         });
     }
   };
@@ -42,7 +50,7 @@ const Homecard = () => {
   function plasmaFilter() {
     const filtered = filteredData
       .map((data) => {
-        if (data[3] === document.getElementById("bgroup").value || data[3] ==="All") {
+        if (data[plasmaIndex] === document.getElementById("bgroup").value || data[plasmaIndex] ==="All") {
           return data;
         } else return "";
       })
@@ -58,7 +66,7 @@ const Homecard = () => {
     if (document.getElementById("rname").value === "plasma") {
       setPlasma(
         datas.data
-          .map((plasma) => plasma[3])
+          .map((plasma) => plasma[plasmaIndex])
           .filter((value, index, self) => self.indexOf(value) === index)
       );
       document.getElementById("plasmaButton").style.display = "unset";
@@ -75,8 +83,8 @@ const Homecard = () => {
     setcities(
       datas.data
         .map((id) => {
-          if (id[0] === state) {
-            return id[1];
+          if (id[stateIndex] === state) {
+            return id[cityIndex];
           }
           return "";
         })
@@ -93,8 +101,8 @@ const Homecard = () => {
         if (document.getElementById("city").value) {
           return datas.data.map((id) => {
             if (
-              id[1] === document.getElementById("city").value &&
-              id[0] === document.getElementById("state").value
+              id[cityIndex] === document.getElementById("city").value &&
+              id[stateIndex] === document.getElementById("state").value
             ) {
               return id;
             }
@@ -102,7 +110,7 @@ const Homecard = () => {
           });
         } else if (document.getElementById("state").value) {
           return datas.data.map((id) => {
-            if (id[0] === document.getElementById("state").value) {
+            if (id[stateIndex] === document.getElementById("state").value) {
               return id;
             }
             return "";

@@ -36,8 +36,8 @@ const useStyles = makeStyles({
 export default function StickyHeadTable(props) {
   const classes = useStyles();
     const rows = props.data
-      
     
+
     const columns = 
       props.headers?
       props.headers.map((header,i) => {
@@ -50,10 +50,6 @@ export default function StickyHeadTable(props) {
       // { id: '4', label: 'Criteria', minWidth: 100 },
       // { id: '5', label: 'Link', minWidth: 100 },
     
-    
-
-
-
   
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -93,11 +89,26 @@ export default function StickyHeadTable(props) {
                 <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                   {columns.map((column) => {
                     const value = row[column.id];
+                    if(column.label === "Contact" || column.label === "Contact " || column.label === "Contact no"){
+                      const numbers = value.trim().split(/\s+/);
                     return (
-                      <TableCell key={column.id} align={column.align}>
+                      <TableCell key={column.id} align={column.align} >
+                        {numbers.map((number)=>{
+                          return(<>
+                          <a href={`tel:${number}`} style={{textDecoration:"none"}}>{number}&nbsp;&nbsp;</a><br/></>)
+                        })}
+                        {/* <a href={column.format && typeof value === 'number' ? `tel:${column.format(value)}` : `tel:${value}`}>
                         {column.format && typeof value === 'number' ? column.format(value) : value}
+                        </a> */}
                       </TableCell>
-                    );
+                    );}
+                    else{
+                      return (
+                        <TableCell key={column.id} align={column.align}>
+                          {column.format && typeof value === 'number' ? column.format(value) : value}
+                        </TableCell>
+                      );
+                    }
                   })}
                 </TableRow>
               );

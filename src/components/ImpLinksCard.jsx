@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import Table from "./table";
+import Table from "./ImpLinkTable";
 import "./tabs.css";
 
 const Homecard = () => {
@@ -7,7 +7,8 @@ const Homecard = () => {
   const [cities, setcities] = useState([]);
   const [filteredData, setFilter] = useState([]);
   const [filteredHeaders, setHeaders] = useState([]);
-  // const[plasma,setPlasma] = useState([])
+  const[cityIndex,setCityIndex] = useState(null);
+  const[stateIndex,setStateIndex] = useState(null);
 
   useEffect(() => {
     fetchResource();
@@ -22,6 +23,8 @@ const Homecard = () => {
       .then((response) => response.json())
       .then((data) => {
         setDatas(data);
+        setCityIndex(data.headers.indexOf("City"))
+        setStateIndex(data.headers.indexOf("State"))
         document.getElementById("tbs").innerHTML = "Search";
         document.getElementById("tbs").disabled = false;
         document.getElementById("tbs2").innerHTML = "Search";
@@ -34,8 +37,8 @@ const Homecard = () => {
     setcities(
       datas.data
         .map((id) => {
-          if (id[0] === state) {
-            return id[1];
+          if (id[stateIndex] === state) {
+            return id[cityIndex];
           }
           return "";
         })
@@ -51,8 +54,8 @@ const Homecard = () => {
         if (document.getElementById("city").value) {
           return datas.data.map((id) => {
             if (
-              id[1] === document.getElementById("city").value &&
-              id[0] === document.getElementById("state").value
+              id[cityIndex] === document.getElementById("city").value &&
+              id[stateIndex] === document.getElementById("state").value
             ) {
               return id;
             }
@@ -60,7 +63,7 @@ const Homecard = () => {
           });
         } else if (document.getElementById("state").value) {
           return datas.data.map((id) => {
-            if (id[0] === document.getElementById("state").value) {
+            if (id[stateIndex] === document.getElementById("state").value) {
               return id;
             }
             return "";
