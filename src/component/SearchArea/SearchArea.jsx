@@ -1,5 +1,5 @@
 import { Button } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTable, selectResource, selectState, selectCity } from '../../redux/action';
 import { getResources } from '../../redux/api';
@@ -8,9 +8,7 @@ import "./SearchArea.css";
 
 
 export default function SearchArea() {
-
-    const [resource, setResource] = useState("");
-
+    
     const dispatch = useDispatch();
 
     const getData = (e) => {
@@ -52,9 +50,9 @@ export default function SearchArea() {
                     <label htmlFor="state">State<span>*</span></label>
                     <select id="state" onChange={getState}>
                         <option >-</option>
-                        <option value="all">All State</option>
+                        <option value="all">All States</option>
                         {
-                            data.states.map(stateName => <option key={stateName} value={stateName}>{stateName}</option>)
+                            data.states.filter((d) => d.toLowerCase() !== 'all' ).sort().map(stateName => <option key={stateName} value={stateName}>{stateName}</option>)
                         }
                     </select>
                 </div>
@@ -63,8 +61,9 @@ export default function SearchArea() {
                     <label htmlFor="city">City<span>*</span></label>
                     <select id="city" onChange={getCity}>
                     <option>-</option>
+                        <option value="all">All Cities</option>
                         {
-                            data.cities.map(city => <option key={city} value={city}>{city}</option>)
+                            data.cities.filter((d) => d.toLowerCase() !== 'all').sort().map(city => <option key={city} value={city}>{city}</option>)
                         }
                     </select>
                 </div>
@@ -74,8 +73,8 @@ export default function SearchArea() {
                 <Button
                     variant="contained"
                     color="primary"
-                    onClick={toggleSearch}
-                    disabled={!data.selected_city}
+                    onClick={data.isTable? null : toggleSearch}
+                    disabled={!data.selected_state}
                 >
                     Search
                 </Button>

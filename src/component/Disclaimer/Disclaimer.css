@@ -1,18 +1,24 @@
 .body {
-  position: relative;
-  display: inline-flexbox;
-  justify-content: center;
-  align-items: center;
-  vertical-align:middle;
-  padding: 5% 15%;
+  margin: 7% auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
 }
 
-.para {
-  margin-bottom: 3%;
-}
-
-.termsButton {
-  position: relative;
-  display:inline-block;
+.MuiCardActions-root {
+  display: block !important;
   margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
+.MuiButton-textSizeSmall {
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .body {
+    width: 75%;
+  }
 }
