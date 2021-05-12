@@ -36,7 +36,7 @@ const closeModal = () => {
       <Footer/>
       <div className="modal fade" style={{zIndex: "999999"}} id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
     role="dialog">
-    <div className="modal-dialog modal-dialog-centered" role="document">
+    <div className="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
         <div className="modal-content">
             <div className="modal-header justify-content-center">
                <center> <h5 className="modal-title text-warning text-center" id="exampleModalLabel"><i className="fas fa-exclamation-circle"></i>&nbsp;Disclaimer</h5></center>
