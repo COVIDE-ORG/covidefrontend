@@ -4,3 +4,14 @@
     background-color: #F7F1F1;
     min-height: 100vh;
   }
+
+  #agreebutton{
+    background-color: #16C799;
+    color: white;
+    border: #16C799;
+  }
+  #agreebutton:hover{
+    background-color: #0c8867;
+    color: white;
+  }
+

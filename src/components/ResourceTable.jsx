@@ -11,9 +11,9 @@ import TableRow from '@material-ui/core/TableRow';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: "#a1698D",
     color: theme.palette.common.white,
-    opacity: "0.8"
+    opacity: "1"
   },
   body: {
     fontSize: 14,
@@ -76,7 +76,7 @@ export default function StickyHeadTable(props) {
                 <StyledTableCell
                   key={column.id}
                   align={column.align}
-                  style={{ minWidth: column.minWidth }}
+                  style={{ minWidth: column.minWidth,background:"#11698D" }}
                 >
                   {column.label}
                 </StyledTableCell>

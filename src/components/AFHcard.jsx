@@ -150,7 +150,7 @@ const Homecard = () => {
               <button
                 type="button"
                 onClick={handleSubmit}
-                className="btn btn-outline-secondary"
+                className="btn btn-outline-secondary cbtn"
                 style={{ width: "100%" }}
               >
                 Send

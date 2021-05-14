@@ -171,7 +171,7 @@ const Homecard = () => {
                   <button
                     type="button"
                     id="tbs2"
-                    className="btn btn-outline-secondary mt-2 mb-2"
+                    className="btn btn-outline-secondary cbtn mt-2 mb-2"
                     onClick={search}
                   >
                     Search
@@ -186,7 +186,7 @@ const Homecard = () => {
                 <button
                   type="button"
                   id="tbs"
-                  className="btn btn-outline-secondary mt-2"
+                  className="btn btn-outline-secondary cbtn mt-2"
                   onClick={search}
                 >
                   Search

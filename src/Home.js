@@ -3,6 +3,7 @@ import Header from './components/header'
 import Card from './components/homecard'
 import Footer from './components/footer'
 import Cookies from 'universal-cookie';
+import './index.css'
 
 function App() {
 
@@ -39,7 +40,7 @@ const closeModal = () => {
     <div className="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
         <div className="modal-content">
             <div className="modal-header justify-content-center">
-               <center> <h5 className="modal-title text-warning text-center" id="exampleModalLabel"><i className="fas fa-exclamation-circle"></i>&nbsp;Disclaimer</h5></center>
+               <center> <h5 className="modal-title  text-center" style={{color: "#16C799"}} id="exampleModalLabel"><i className="fas fa-exclamation-circle"></i>&nbsp;Disclaimer</h5></center>
                 
             </div>
             <div className="modal-body">
@@ -54,7 +55,7 @@ The terms mentioned above can change without any imitation or notification. By c
             </p>
             </div>
             <div className="modal-footer justify-content-center">
-                <button type="button" className="btn btn-success" onClick={closeModal}>I Understood</button>
+                <button type="button" id ="agreebutton" className="btn btn-warning" style={{colo:"#16C799"}} onClick={closeModal}>Agree and Proceed</button>
                 
             </div>
         </div>
