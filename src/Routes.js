@@ -4,7 +4,9 @@ import Home from './Home';
 import IL from './ImpLink';
 import Volunteers from './Volunteers';
 import AskForHelp from './AskForHelp';
-import Developers from './Developers'
+import Developers from './Developers';
+import TechTeam from './techTeam';
+import volunteerTeam from './volunnteerTeam'
 
 
 const Routes = () => {
@@ -15,7 +17,9 @@ const Routes = () => {
             <Route path="/importantlinks" exact component={IL}/>
             <Route path="/volunteers" exact component={Volunteers}/>
             <Route path="/askforhelp" exact component={AskForHelp}/>
-            <Route path="/developers" exact component={Developers}/>
+            <Route path="/ourteam" exact component={Developers}/>
+            <Route path="/ourteam/techteam" exact component={TechTeam}/>
+            <Route path="/ourteam/volunteerteam" exact component={volunteerTeam}/>
         </Switch>
     </BrowserRouter>
     );

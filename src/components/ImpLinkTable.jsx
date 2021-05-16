@@ -93,7 +93,7 @@ export default function StickyHeadTable(props) {
                 <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                   {columns.map((column) => {
                     const value = row[column.id];
-                    if(column.id === 3){
+                    if(column.label === "Links"){
                     return (
                       <TableCell key={column.id} align={column.align} >
                         <a target="_blank" rel="noopener noreferrer" href={column.format && typeof value === 'number' ? column.format(value) : value}>

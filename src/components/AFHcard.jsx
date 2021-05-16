@@ -26,7 +26,7 @@ const Homecard = () => {
       querry: query,
     };
     if (name && contact && query) {
-      fetch("http://168.62.36.33:8000/api/help/create", {
+      fetch("http://168.62.36.33/api/help/create", {
         method: "post",
         headers: {
           Accept: "application/json",

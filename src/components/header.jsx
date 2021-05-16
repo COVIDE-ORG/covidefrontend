@@ -23,7 +23,7 @@ const Header =() => {
                     </li><li className="nav-item">
                     <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/askforhelp">Ask for Help</Link>
                     </li><li className="nav-item">
-                    <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/developers">Developers</Link>
+                    <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/ourteam">Developers</Link>
                     </li>
                    
                 </ul>
