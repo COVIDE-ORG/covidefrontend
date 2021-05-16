@@ -19,7 +19,7 @@ const Homecard = () => {
     document.getElementById("tbs").disabled = true;
     document.getElementById("tbs2").innerHTML = "Please Wait";
     document.getElementById("tbs2").disabled = true;
-    fetch(`http://168.62.36.33/api/implinks`)
+    fetch(`https://covidresources.org.in/api/implinks`)
       .then((response) => response.json())
       .then((data) => {
         setDatas(data);

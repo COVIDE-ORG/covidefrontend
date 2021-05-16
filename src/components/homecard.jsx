@@ -21,7 +21,7 @@ const Homecard = () => {
     document.getElementById("tbs2").disabled = true;
     const rname = document.getElementById("rname").value.toLowerCase();
     if (rname) {
-      fetch(`http://168.62.36.33/api/resource/${rname}`)
+      fetch(`https://covidresources.org.in/api/resource/${rname}`)
         .then((response) => response.json())
         .then((data) => {
           setDatas(data);

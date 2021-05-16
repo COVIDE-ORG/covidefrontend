@@ -89,7 +89,7 @@ const Homecard = () => {
       return (
         <div className="col-md-3">
         <img src={person.image} alt="none" style={{width: "150px",height:"150px",borderRadius:"50%",objectFit:"cover",border: "5px solid #11698D", padding: "3px"}} />
-        <h6 class="mt-3">{person.name} <br />
+        <h6 className="mt-3">{person.name} <br />
         {person.society}</h6>
       </div>
       )
@@ -97,17 +97,17 @@ const Homecard = () => {
     
     {/* <div className="col-md-3">
       <img src={search} alt="none" style={{width: "150px",height:"150px",borderRadius:"50%",objectFit:"cover",border: "5px solid green", padding: "5px"}} />
-      <h6 class="mt-3">Manish Bhardwaj <br />
+      <h6 className="mt-3">Manish Bhardwaj <br />
       IoT Lab KiiT</h6>
     </div>
     <div className="col-md-3">
       <img src={search} alt="none" style={{width: "150px",height:"150px",borderRadius:"50%",objectFit:"cover",border: "5px solid green", padding: "5px"}} />
-      <h6 class="mt-3">Manish Bhardwaj <br />
+      <h6 className="mt-3">Manish Bhardwaj <br />
       IoT Lab KiiT</h6>
     </div>
     <div className="col-md-3">
       <img src={search} alt="none" style={{width: "150px",height:"150px",borderRadius:"50%",objectFit:"cover",border: "5px solid green", padding: "5px"}} />
-      <h6 class="mt-3">Manish Bhardwaj <br />
+      <h6 className="mt-3">Manish Bhardwaj <br />
       IoT Lab KiiT</h6>
     </div> */}
     

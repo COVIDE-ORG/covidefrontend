@@ -5,7 +5,6 @@ import techTeam from "../assets/tt.png";
 import volunteerTeamIcon from "../assets/vt.png";
 import iot from "../assets/iot.webp";
 import tph from "../assets/tph.jpg";
-import dsc from "../assets/dsc.png";
 import msac from "../assets/msac.png";
 
 const Homecard = () => {
@@ -18,10 +17,6 @@ const Homecard = () => {
     {
       society: 'TPH KiiT',
       image: tph
-    },
-    {
-      society: 'DSC KiiT',
-      image: dsc
     },
     {
       society: 'MSAC KiiT',
@@ -75,15 +70,15 @@ const Homecard = () => {
           </nav>
           <div className="row" style={{ justifyContent: "center" }}>
             <div
-              class="card text-center mt-2"
+              className="card text-center mt-2"
               style={{ width: "18rem", border: "none", }}
             >
-              <img class="card-img-top" src={techTeam} alt="Card" style={{height:"150px",width:"150px",alignSelf: "center"}}/>
-              <div class="card-body">
-                <h5 class="card-title">Tech Team</h5>
+              <img className="card-img-top" src={techTeam} alt="Card" style={{height:"150px",width:"150px",alignSelf: "center"}}/>
+              <div className="card-body">
+                <h5 className="card-title">Tech Team</h5>
                 <Link
                   to="/ourteam/techteam"
-                  class="btn btn-outline-secondary cbtn"
+                  className="btn btn-outline-secondary cbtn"
                 >
                   Visit Tech Team
                 </Link>
@@ -91,15 +86,15 @@ const Homecard = () => {
             </div>
             <div className="col-md-1"></div>
             <div
-              class="card text-center mt-2"
+              className="card text-center mt-2"
               style={{ width: "18rem", border: "none" }}
             >
-              <img class="card-img-top" src={volunteerTeamIcon} alt="Card" style={{height:"150px",width:"150px",alignSelf: "center"}} />
-              <div class="card-body">
-                <h5 class="card-title">Volunteer Team</h5>
+              <img className="card-img-top" src={volunteerTeamIcon} alt="Card" style={{height:"150px",width:"150px",alignSelf: "center"}} />
+              <div className="card-body">
+                <h5 className="card-title">Volunteer Team</h5>
                 <Link
                   to="/ourteam/volunteerteam"
-                  class="btn btn-outline-secondary cbtn"
+                  className="btn btn-outline-secondary cbtn"
                 >
                   Visit Volunteer Team
                 </Link>
@@ -126,7 +121,7 @@ const Homecard = () => {
                     padding: "5px",
                   }}
                 />
-                <h6 class="mt-3">
+                <h6 className="mt-3">
                   {society.society} 
                 </h6>
               </div>
@@ -148,7 +143,7 @@ const Homecard = () => {
                   padding: "5px",
                 }}
               />
-              <h6 class="mt-3">
+              <h6 className="mt-3">
                 Manish Bhardwaj <br />
                 IoT Lab KiiT
               </h6>
@@ -166,7 +161,7 @@ const Homecard = () => {
                   padding: "5px",
                 }}
               />
-              <h6 class="mt-3">
+              <h6 className="mt-3">
                 Manish Bhardwaj <br />
                 IoT Lab KiiT
               </h6>

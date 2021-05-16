@@ -63,7 +63,7 @@ const Homecard = () => {
       return (
         <div className="col-md-3">
         <img src={person.image} alt="none" style={{width: "150px",height:"150px",borderRadius:"50%",objectFit:"cover",border: "5px solid green", padding: "5px"}} />
-        <h6 class="mt-3">{person.name} <br />
+        <h6 className="mt-3">{person.name} <br />
         {person.society}</h6>
       </div>
       )
