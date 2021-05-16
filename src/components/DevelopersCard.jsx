@@ -1,7 +1,6 @@
 import { React } from "react";
 import "./tabs.css";
 import { Link } from "react-router-dom";
-import search from "../assets/tt.jpg";
 import techTeam from "../assets/tt.png";
 import volunteerTeamIcon from "../assets/vt.png";
 import iot from "../assets/iot.webp";
