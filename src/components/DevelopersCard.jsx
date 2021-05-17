@@ -2,8 +2,8 @@ import { React } from "react";
 import "./tabs.css";
 import { Link } from "react-router-dom";
 import techTeam from "../assets/tt.png";
-import volunteerTeamIcon from "../assets/vt.png";
-import  society from "../assets/society.png"
+import volunteerTeamIcon from "../assets/vt.jpg";
+import  society from "../assets/society.jpg"
 
 const Homecard = () => {
 

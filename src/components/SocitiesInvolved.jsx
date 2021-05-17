@@ -3,6 +3,7 @@ import "./tabs.css";
 import iot from "../assets/iot.webp";
 import tph from "../assets/tph.jpg";
 import msac from "../assets/msac.png";
+import desire from "../assets/desire.png"
 
 const Homecard = () => {
 
@@ -15,12 +16,17 @@ const Homecard = () => {
     {
       society: 'TPH KiiT',
       image: tph,
-      link: 'https://blog.tph.org.in/'
+      link: 'http://www.instgram.com/tphfamily123'
     },
     {
       society: 'MSAC KiiT',
       image: msac,
       link: 'https://msackiit.tech/'
+    },
+    {
+      society: 'Desire Foundation',
+      image: desire,
+      link: 'http://www.desirefoundation.org/'
     },
   ]
 
