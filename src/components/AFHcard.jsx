@@ -65,7 +65,7 @@ const Homecard = () => {
 
     };
     if (name && contact && query && place && age && spo2 && admittedIn && aname && covidSatus) {
-      fetch("https://covidresources.org.in/api/help/cdreate", {
+      fetch("https://covidresources.org.in/api/help/create", {
         method: "post",
         headers: {
           Accept: "application/json",
