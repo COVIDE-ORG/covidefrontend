@@ -1,13 +1,6 @@
 import { React } from "react";
 import "./tabs.css";
 import manish_p from "../assets/Picture.jpeg"
-import sambit_majhi_p from "../assets/sambit_majhi.png"
-import sambit_saha_p from "../assets/sambit_saha.jpeg"
-import mohit_patel_p from "../assets/mohit_patel.jpeg";
-import rudit_rahul_p from "../assets/rudit_rahul.jpeg"
-
-
-
 
 const Homecard = () => {
   const techTeam = [
@@ -17,25 +10,77 @@ const Homecard = () => {
       image: manish_p
     },
     {
-      name:'Sambit Majhi',
-      society: 'IoT Lab KiiT',
-      image: sambit_majhi_p
+      name: "Sambit Majhi",
+      society: "IoT Lab KIIT",
+      teamType: "Tech Team",
+      image: "https://drive.google.com/thumbnail?id=1lXZABk8btOrRO3ANV5p4gP_hXfFEpejl"
     },
     {
-      name:'Sambit Saha',
-      society: 'IoT Lab KiiT',
-      image: sambit_saha_p
+      name: "Sambit Saha",
+      society: "IoT Lab KIIT",
+      teamType: "Tech Team",
+      image: "https://drive.google.com/thumbnail?id=1-Nr2c4seUnNvR0HFACkVmqP-oqZ6WKSi"
     },
     {
-      name:'Mohit Patel',
-      society: 'IoT Lab KiiT',
-      image: mohit_patel_p
+      name: "Abhishek Raj",
+      society: "",
+      teamType: "Tech Team",
+      image: "https://drive.google.com/thumbnail?id=1C6hVsLd898XotnqyRBtSm8eNyYq6cVpK"
     },
     {
-      name:'Rudit Rahul',
-      society: 'TPH',
-      image: rudit_rahul_p
+      name: "Nikhil Srivastava",
+      society: "",
+      teamType: "Tech Team",
+      image: "https://drive.google.com/thumbnail?id=1Z6WfPuqjxMq5eQoEOrWwFZjV4i5Rj165"
     },
+    {
+      name: "Saatwik",
+      society: "MSAC",
+      teamType: "Tech Team",
+      image: "https://drive.google.com/thumbnail?id=1fFJXM6eGIWxnLhlfDlf9MLAaTlqJ9X6S"
+    },
+    {
+      name: "Mohit Patel",
+      society: "IoT Lab, KIIT",
+      teamType: "Tech Team",
+      image: "https://drive.google.com/thumbnail?id=1J-YMMp5g8ZmoHW2zMCyF-ncZLz19Puur"
+    },
+    {
+      name: "Akash Raj",
+      society: "TPH",
+      teamType: "Tech Team",
+      image: "https://drive.google.com/thumbnail?id=1zTNkuhNMZ1W49NyEQLlFPTPc9DEZVYpu"
+    },
+    {
+      name: "Sakshi Gairola",
+      society: "IoT Lab KIIT",
+      teamType: "Tech Team",
+      image: "https://drive.google.com/thumbnail?id=1O8-I8NA7Qyz7i_pZSWCgw0O9szsUlX3R"
+    },
+    {
+      name: "Sagnik Ghosh",
+      society: "MSAC",
+      teamType: "Tech Team",
+      image: "https://drive.google.com/thumbnail?id=1_dkDGVYA_dCHGmleS0bq052rdVRlg0tu"
+    },
+    {
+      name: "Abhinav Karthikeya",
+      society: "Desire Foundation",
+      teamType: "Tech Team",
+      image: "https://drive.google.com/thumbnail?id=1QiH6KT6LYVQg8c8wDQ_cCTTGkAtJtd5W"
+    },
+    {
+      name: "Kartik Budhraja",
+      society: "Kindle",
+      teamType: "Tech Team",
+      image: "https://drive.google.com/thumbnail?id=1ip8Bby23mgStYAY3H65cXCaiaqJF_0Un"
+    },
+    {
+      name: "Rudit Rahul",
+      society: "TPH",
+      teamType: "Tech Team",
+      image: "https://drive.google.com/thumbnail?id=1JvGajzRzAReAoL0DHduUAbXowW_EVDCH"
+    }
   ]
 
 
@@ -80,10 +125,10 @@ const Homecard = () => {
                 fontSize: "medium",
               }}
             >
-              Tech Team
+              Our Team
             </span>
           </nav>
-
+          <h3 className="text-center mt-3">Tech Team</h3>
   <div className="row mt-5" style={{justifyContent:"center",textAlign:"center"}}>
     {shuffle(techTeam).map((person)=>{
       return (

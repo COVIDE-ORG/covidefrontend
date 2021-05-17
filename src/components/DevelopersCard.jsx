@@ -6,6 +6,7 @@ import volunteerTeamIcon from "../assets/vt.png";
 import iot from "../assets/iot.webp";
 import tph from "../assets/tph.jpg";
 import msac from "../assets/msac.png";
+import  society from "../assets/society.png"
 
 const Homecard = () => {
 
@@ -56,7 +57,7 @@ const Homecard = () => {
         <div className="card-body">
           <nav
             className="navbar navbar-expand-lg navbar-light mb-3"
-            style={{ background: "#11698D", justifyContent: "center" }}
+            style={{ background: "#11698D", justifyContent: "center",}}
           >
             <span
               className="navbar-brand"
@@ -84,7 +85,7 @@ const Homecard = () => {
                 </Link>
               </div>
             </div>
-            <div className="col-md-1"></div>
+            
             <div
               className="card text-center mt-2"
               style={{ width: "18rem", border: "none" }}
@@ -100,72 +101,21 @@ const Homecard = () => {
                 </Link>
               </div>
             </div>
-          </div>
-          <h3 className="text-center mt-3">Societies</h3>
-          <div
-            className="row mt-5"
-            style={{ justifyContent: "center", textAlign: "center" }}
-          >
-            {societies?shuffle(societies).map((society)=>{
-              return(
-                <div className="col-md-3">
-                <img
-                  src={society.image}
-                  alt="none"
-                  style={{
-                    width: "150px",
-                    height: "150px",
-                    borderRadius: "50%",
-                    objectFit: "cover",
-                    border: "5px solid green",
-                    padding: "5px",
-                  }}
-                />
-                <h6 className="mt-3">
-                  {society.society} 
-                </h6>
+            <div
+              className="card text-center mt-2"
+              style={{ width: "18rem", border: "none", }}
+            >
+              <img className="card-img-top" src={society} alt="Card" style={{height:"150px",width:"150px",alignSelf: "center"}}/>
+              <div className="card-body">
+                <h5 className="card-title">Societies Involved</h5>
+                <Link
+                  to="/ourteam/societies"
+                  className="btn btn-outline-secondary cbtn"
+                >
+                  Visit Societies
+                </Link>
               </div>
-              )
-            }):''}
-            
-
-
-            {/* <div className="col-md-3">
-              <img
-                src={search}
-                alt="none"
-                style={{
-                  width: "200px",
-                  height: "200px",
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                  border: "5px solid green",
-                  padding: "5px",
-                }}
-              />
-              <h6 className="mt-3">
-                Manish Bhardwaj <br />
-                IoT Lab KiiT
-              </h6>
             </div>
-            <div className="col-md-3">
-              <img
-                src={search}
-                alt="none"
-                style={{
-                  width: "200px",
-                  height: "200px",
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                  border: "5px solid green",
-                  padding: "5px",
-                }}
-              />
-              <h6 className="mt-3">
-                Manish Bhardwaj <br />
-                IoT Lab KiiT
-              </h6>
-            </div> */}
           </div>
         </div>
       </div>

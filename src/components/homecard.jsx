@@ -15,6 +15,10 @@ const Homecard = () => {
   useEffect(() => {}, []);
 
   const fetchResource = () => {
+    if(!document.getElementById("rname").value){
+      return;
+    }
+    document.getElementById("alert").style.display = "none"
     document.getElementById("tbs").innerHTML = "Please Wait";
     document.getElementById("tbs").disabled = true;
     document.getElementById("tbs2").innerHTML = "Please Wait";
@@ -93,6 +97,10 @@ const Homecard = () => {
   };
 
   function search() {
+    if(!document.getElementById("rname").value){
+      document.getElementById("alert").style.display = "unset"
+      return;
+    }
     fetchPlasma();
     document.getElementById("tableView").style.display = "unset";
     document.getElementById("bsc").style.display = "none";
@@ -129,6 +137,7 @@ const Homecard = () => {
   }
   return (
     <>
+    
       {/* {JSON.stringify(plasma)} */}
       <div
         className="card dcard mb-5"
@@ -140,6 +149,11 @@ const Homecard = () => {
         }}
       >
         <div className="card-body">
+          <div id="alert" style={{display:"none"}}>
+          <div class="alert alert-danger" role="alert">
+            Please Select Resource
+          </div>
+          </div>
           <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li className="nav-item" role="presentation">
               <button
@@ -168,9 +182,10 @@ const Homecard = () => {
               role="tabpanel"
               aria-labelledby="pills-home-tab"
             >
-              <div className="homeSelect">
-                <div>
-                  <strong style={{ fontFamily: "Roboto" }}>
+
+                  <div className="row">
+                    <div className="col-md-4">
+                    <strong style={{ fontFamily: "Roboto" }}>
                     Select Resource<span style={{ color: "red" }}> *</span>
                   </strong>
                   <select
@@ -189,9 +204,10 @@ const Homecard = () => {
                     <option value="ambulance">Ambulance</option>
                     <option value="meds">Medicines</option>
                   </select>
-                </div>
-                <div>
-                  <strong style={{ fontFamily: "Roboto" }}>Select State</strong>
+                    </div>
+
+                    <div className="col-md-4">
+                    <strong style={{ fontFamily: "Roboto" }}>Select State</strong>
                   <select
                     id="state"
                     className="form-select mt-2"
@@ -209,9 +225,9 @@ const Homecard = () => {
                         ))
                       : ""}
                   </select>
-                </div>
-                <div>
-                  <strong style={{ fontFamily: "Roboto" }}>Select City</strong>
+                    </div>
+                    <div className="col-md-4">
+                    <strong style={{ fontFamily: "Roboto" }}>Select City</strong>
                   <select
                     className="form-select mt-2"
                     id="city"
@@ -233,8 +249,9 @@ const Homecard = () => {
                         })
                       : ""}
                   </select>
-                </div>
-              </div>
+                    </div>
+
+                  </div>
 
               {/* {JSON.stringify(filteredData)} */}
 

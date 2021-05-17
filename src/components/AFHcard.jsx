@@ -2,16 +2,43 @@ import { React, useState } from "react";
 import "./tabs.css";
 
 const Homecard = () => {
-  const [query, setQuery] = useState("");
+  
   const [name, setName] = useState("");
+  const [place,setPlace]= useState("");
+  const [age,setAge]= useState("");
+  const [spo2,setSpo2] = useState("");
+  const [admittedIn,setAdmitted] = useState("");
+  const [query, setQuery] = useState("");
+  const [aname,setAname]=useState("");
   const [contact, setContact] = useState("");
+  const [altNo,setAlt] = useState("");
+  
+
 
   const handleName = (e) => {
     setName(e.target.value);
   };
+  const handlePlace = (e) => {
+    setPlace(e.target.value);
+  };
+  const handleAge = (e) => {
+    setAge(e.target.value);
+  };
 
   const handleContact = (e) => {
     setContact(e.target.value);
+  };
+  const handlespo2 = (e) => {
+    setSpo2(e.target.value);
+  };
+  const handleAdmitted = (e) => {
+    setAdmitted(e.target.value);
+  };
+  const handleAname = (e) => {
+    setAname(e.target.value);
+  };
+  const handleAlt = (e) => {
+    setAlt(e.target.value);
   };
 
   const handleQuery = (e) => {
@@ -21,11 +48,18 @@ const Homecard = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
-      name: name,
-      number: contact,
-      querry: query,
+      PatientName: name,
+      Place: place,
+      Age: age,
+      SpO2: spo2,
+      AdmittedIn: admittedIn,
+      Requirement: query,
+      AttendantName: aname,
+      ContactNo: contact,
+      AlternateNo: altNo
+
     };
-    if (name && contact && query) {
+    if (name && contact && query && place && age && spo2 && admittedIn && aname) {
       fetch("https://covidresources.org.in/api/help/create", {
         method: "post",
         headers: {
@@ -41,8 +75,22 @@ const Homecard = () => {
               "Your Query Has been Submitted Successfully. We will contact you soon"
             );
             setName("");
+            setPlace("");
+            setAge("");
             setContact("");
+            setSpo2("");
+            setAdmitted("");
+            setAname("");
+            setAlt("");
             setQuery("");
+            document.getElementById("1").value="";
+            document.getElementById("2").value="";
+            document.getElementById("3").value="";
+            document.getElementById("4").value="";
+            document.getElementById("5").value="";
+            document.getElementById("6").value="";
+            document.getElementById("7").value="";
+            document.getElementById("8").value="";
           } else {
             console.log(res.status);
             alert("Something Went Wrong");
@@ -83,28 +131,114 @@ const Homecard = () => {
               Ask For Help
             </span>
           </nav>
-          <div className="homeSelect mt-5">
+          <div className="homeSelect mt-3">
             <div>
               <strong style={{ fontFamily: "Roboto" }}>
-                Name<span style={{ color: "red" }}> *</span>
+                Patient's Name<span style={{ color: "red" }}> *</span>
               </strong>
               <input
+                id="1"
                 className="form-control"
                 type="text"
                 onChange={handleName}
-                placeholder="Enter Name"
+                placeholder="Enter Patient's Name"
                 aria-label="default input example"
               ></input>
             </div>
             <div>
               <strong style={{ fontFamily: "Roboto" }}>
+                Place <span style={{ color: "red" }}> *</span>
+              </strong>
+              <input
+              id="2"
+                className="form-control"
+                onChange={handlePlace}
+                type="text"
+                placeholder="Enter Place"
+                aria-label="default input example"
+              ></input>
+            </div>
+          </div>
+          <div className="homeSelect mt-3">
+            <div>
+              <strong style={{ fontFamily: "Roboto" }}>
+                Age<span style={{ color: "red" }}> *</span>
+              </strong>
+              <input
+              id="3"
+                className="form-control"
+                type="text"
+                onChange={handleAge}
+                placeholder="Enter Patient's Age"
+                aria-label="default input example"
+              ></input>
+            </div>
+            <div>
+              <strong style={{ fontFamily: "Roboto" }}>
+                Spo2 (Oxygen Level)<span style={{ color: "red" }}> *</span>
+              </strong>
+              <input
+              id="4"
+                className="form-control"
+                onChange={handlespo2}
+                type="text"
+                placeholder="Enter Oxygen Level"
+                aria-label="default input example"
+              ></input>
+            </div>
+          </div>
+          <div className="homeSelect mt-3">
+            <div>
+              <strong style={{ fontFamily: "Roboto" }}>
+                Admitted In<span style={{ color: "red" }}> *</span>
+              </strong>
+              <input
+              id="5"
+                className="form-control"
+                type="text"
+                onChange={handleAdmitted}
+                placeholder="Admitted In"
+                aria-label="default input example"
+              ></input>
+            </div>
+            <div>
+              <strong style={{ fontFamily: "Roboto" }}>
+                Attendant's Name<span style={{ color: "red" }}> *</span>
+              </strong>
+              <input
+              id="6"
+                className="form-control"
+                onChange={handleAname}
+                type="text"
+                placeholder="Enter Attendant's Name"
+                aria-label="default input example"
+              ></input>
+            </div>
+          </div>
+          <div className="homeSelect mt-3">
+            <div>
+              <strong style={{ fontFamily: "Roboto" }}>
                 Contact Number<span style={{ color: "red" }}> *</span>
               </strong>
               <input
+              id="7"
                 className="form-control"
-                onChange={handleContact}
                 type="text"
+                onChange={handleContact}
                 placeholder="Enter Contact Number"
+                aria-label="default input example"
+              ></input>
+            </div>
+            <div>
+              <strong style={{ fontFamily: "Roboto" }}>
+                Alternate Number<span style={{ color: "red" }}> *</span>
+              </strong>
+              <input
+              id="8"
+                className="form-control"
+                onChange={handleAlt}
+                type="text"
+                placeholder="Enter Alternate Number"
                 aria-label="default input example"
               ></input>
             </div>
@@ -113,10 +247,10 @@ const Homecard = () => {
             <div className="col-md-3"></div>
             <div className="col-md-6">
               <strong style={{ fontFamily: "Roboto" }}>
-                Query<span style={{ color: "red" }}> *</span>
+                Requirement<span style={{ color: "red" }}> *</span>
               </strong>
               <select onChange={handleQuery} className="form-select mt-1">
-                <option selected>Select Query</option>
+                <option selected>Select Requirement</option>
                 <option value="Query One">Query One</option>
                 <option value="Query Two">Query Two</option>
                 <option value="Query Three">Query Three</option>
@@ -132,13 +266,13 @@ const Homecard = () => {
             <div className="col-md-3"></div>
             <div className="col-md-6">
               <strong style={{ fontFamily: "Roboto" }}>
-                Enter Your Query<span style={{ color: "red" }}> *</span>
+                Enter Your Requirement<span style={{ color: "red" }}> *</span>
               </strong>
               <textarea
                 value={query}
                 onChange={handleQuery}
                 className="form-control mt-1"
-                placeholder="Enter Your Query"
+                placeholder="Enter Your Requirement"
                 id="exampleFormControlTextarea1"
                 rows="3"
               ></textarea>

@@ -36,7 +36,9 @@ const useStyles = makeStyles({
 export default function StickyHeadTable(props) {
   const classes = useStyles();
     const rows = props.data
-      
+    React.useEffect(()=>{
+      setPage(0);
+    },[rows])
     
     const columns = 
       props.headers?
@@ -56,9 +58,10 @@ export default function StickyHeadTable(props) {
 
   
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
+  const [rowsPerPage, setRowsPerPage] = React.useState(20);
+  const tableRef = React.createRef();
   const handleChangePage = (event, newPage) => {
+    tableRef.current && tableRef.current.scrollIntoView();
     setPage(newPage);
   };
 
@@ -73,7 +76,7 @@ export default function StickyHeadTable(props) {
       
         {/* {JSON.stringify(rows)} */}
       <TableContainer className={classes.container}>
-        <Table className={classes.table} stickyHeader aria-label="customized table">
+        <Table ref={tableRef} className={classes.table} stickyHeader aria-label="customized table">
           <TableHead>
             <TableRow>
               {columns.map((column) => (
@@ -116,7 +119,7 @@ export default function StickyHeadTable(props) {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
+        rowsPerPageOptions={[25, 50, 100]}
         component="div"
         count={rows.length}
         rowsPerPage={rowsPerPage}

@@ -7,6 +7,7 @@ import AskForHelp from './AskForHelp';
 import Developers from './Developers';
 import TechTeam from './techTeam';
 import volunteerTeam from './volunnteerTeam'
+import societies from './societies';
 
 
 const Routes = () => {
@@ -20,6 +21,7 @@ const Routes = () => {
             <Route path="/ourteam" exact component={Developers}/>
             <Route path="/ourteam/techteam" exact component={TechTeam}/>
             <Route path="/ourteam/volunteerteam" exact component={volunteerTeam}/>
+            <Route path="/ourteam/societies" exact component={societies}/>
         </Switch>
     </BrowserRouter>
     );

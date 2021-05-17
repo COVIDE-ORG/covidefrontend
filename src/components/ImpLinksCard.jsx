@@ -9,6 +9,9 @@ const Homecard = () => {
   const [filteredHeaders, setHeaders] = useState([]);
   const[cityIndex,setCityIndex] = useState(null);
   const[stateIndex,setStateIndex] = useState(null);
+  const[serviceIndex,setServiceIndex] = useState(null);
+  const[services,setServices] = useState([]);
+  const[searchedServices,setSearchservices] = useState([]);
 
   useEffect(() => {
     fetchResource();
@@ -23,6 +26,7 @@ const Homecard = () => {
       .then((response) => response.json())
       .then((data) => {
         setDatas(data);
+        setServiceIndex(data.headers.indexOf("Services available"))
         setCityIndex(data.headers.indexOf("City"))
         setStateIndex(data.headers.indexOf("State"))
         document.getElementById("tbs").innerHTML = "Search";
@@ -32,7 +36,47 @@ const Homecard = () => {
       });
   };
 
+  const hideOnSearch = () =>{
+    document.getElementById("serviceButton").style.display = "none"
+  }
+  const chooseBloodGroup = () => {
+    filtersearch();
+    document.getElementById("serviceBar").style.display = "unset";
+    document.getElementById("serviceButton").style.display = "none";
+    document.getElementById("srvc").selectedIndex = "0";
+  };
+
+  function serviceFilter() {
+    const filtered = filteredData
+      .map((data) => {
+        if (data[serviceIndex] === document.getElementById("srvc").value || data[serviceIndex] ==="All Services") {
+          return data;
+        } else return "";
+      })
+      .filter(function (el) {
+        return el !== "";
+      });
+    setFilter(filtered);
+    document.getElementById("serviceBar").style.display = "none";
+    document.getElementById("serviceButton").style.display = "unset";
+    return;
+  }
+  const fetchServices = () => {
+    
+      setServices(
+        searchedServices
+          .map((services) => services[serviceIndex])
+          .filter((value, index, self) => self.indexOf(value) === index)
+      );
+      document.getElementById("serviceButton").style.display = "unset";
+      document.getElementById("serviceBar").style.display = "none";
+    return;
+  };
+
+
+
   const fetchCity = () => {
+    hideOnSearch();
     const state = document.getElementById("state").value;
     setcities(
       datas.data
@@ -46,7 +90,10 @@ const Homecard = () => {
     );
   };
 
-  const search = () => {
+
+
+  const filtersearch = () => {
+    fetchServices();
     document.getElementById("tableView").style.display = "unset";
     document.getElementById("bsc").style.display = "none";
     if (datas.data) {
@@ -76,6 +123,44 @@ const Homecard = () => {
         return el !== "";
       });
       setFilter(filtered);
+    }
+    setHeaders(datas.headers);
+  };
+
+
+
+  const search = () => {
+    fetchServices();
+    document.getElementById("tableView").style.display = "unset";
+    document.getElementById("bsc").style.display = "none";
+    if (datas.data) {
+      const filters = () => {
+        if (document.getElementById("city").value) {
+          return datas.data.map((id) => {
+            if (
+              id[cityIndex] === document.getElementById("city").value &&
+              id[stateIndex] === document.getElementById("state").value
+            ) {
+              return id;
+            }
+            return "";
+          });
+        } else if (document.getElementById("state").value) {
+          return datas.data.map((id) => {
+            if (id[stateIndex] === document.getElementById("state").value) {
+              return id;
+            }
+            return "";
+          });
+        } else {
+          return datas.data.map((res) => res);
+        }
+      };
+      const filtered = filters().filter(function (el) {
+        return el !== "";
+      });
+      setFilter(filtered);
+      setSearchservices(filtered)
     }
     setHeaders(datas.headers);
   };
@@ -166,6 +251,23 @@ const Homecard = () => {
                 </div>
               </div>
 
+              {/* <div id="tableView" style={{ display: "none" }}>
+                <div style={{ minWidth: "100%", textAlign: "center" }}>
+                  <button
+                    type="button"
+                    id="tbs2"
+                    className="btn btn-outline-secondary cbtn mt-2 mb-2"
+                    onClick={search}
+                  >
+                    Search
+                  </button>
+                </div>
+                <div className="mt-3">
+                  <Table data={filteredData} headers={filteredHeaders}></Table>
+                </div>
+              </div> */}
+
+
               <div id="tableView" style={{ display: "none" }}>
                 <div style={{ minWidth: "100%", textAlign: "center" }}>
                   <button
@@ -178,6 +280,43 @@ const Homecard = () => {
                   </button>
                 </div>
                 <div className="mt-3">
+                  <button
+                    className="btn btn-outline-secondary cbtn mb-4"
+                    id="serviceButton"
+                    style={{ display: "none" }}
+                    onClick={chooseBloodGroup}
+                  >
+                    Filter By Services
+                  </button>
+                  <div id="serviceBar" style={{ display: "none" }}>
+                    <strong style={{ fontFamily: "Roboto" }}>
+                      Select Service<span style={{ color: "red" }}> *</span>
+                    </strong>
+                    <select
+                      id="srvc"
+                      className="form-select mt-2 mb-1"
+                      aria-label="Default select example"
+                      style={{ marginLeft: "0" }}
+                      onChange={serviceFilter}
+                    >
+                      <option value="" defaultValue>
+                        Any Service
+                      </option>
+                      {services
+                        ? services.map((plasma) => {
+                            if (cities !== "") {
+                              return (
+                                <option key={plasma} value={plasma}>
+                                  {plasma}
+                                </option>
+                              );
+                            }
+                            return "";
+                          })
+                        : ""}
+                    </select>
+                  </div>
+
                   <Table data={filteredData} headers={filteredHeaders}></Table>
                 </div>
               </div>

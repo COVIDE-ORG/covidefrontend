@@ -8,13 +8,14 @@ const Header =() => {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>
                 </button>
-                <span className="navbar-brand" style={{paddingLeft: "100px",color:"white"}}>Covid Free India</span>
+                <Link className="nav-link" to="/">
+                <span className="navbar-brand" style={{paddingLeft: "100px",color:"white"}}>Covid Free India</span></Link>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   </ul>
                   <ul className="navbar-nav">
                     <li className="nav-item">
-                    <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/">Resource</Link>
+                    <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/">Resources</Link>
                     </li>
                     <li className="nav-item">
                     <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/volunteers">Volunteers</Link>
@@ -23,7 +24,7 @@ const Header =() => {
                     </li><li className="nav-item">
                     <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/askforhelp">Ask for Help</Link>
                     </li><li className="nav-item">
-                    <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/ourteam">Developers</Link>
+                    <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/ourteam">Our Team</Link>
                     </li>
                    
                 </ul>
