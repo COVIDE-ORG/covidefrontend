@@ -18,11 +18,13 @@ const Header =() => {
                     <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/">Resources</Link>
                     </li>
                     <li className="nav-item">
-                    <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/volunteers">Volunteers</Link>
-                    </li><li className="nav-item">
                     <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/importantlinks">Important Links</Link>
-                    </li><li className="nav-item">
+                    </li>
+                    <li className="nav-item">
                     <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/askforhelp">Ask for Help</Link>
+                    </li>
+                    <li className="nav-item">
+                    <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/volunteers">Join our Team</Link>
                     </li><li className="nav-item">
                     <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/ourteam">Our Team</Link>
                     </li>

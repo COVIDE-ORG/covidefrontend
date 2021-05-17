@@ -231,7 +231,7 @@ const Homecard = () => {
             </div>
             <div>
               <strong style={{ fontFamily: "Roboto" }}>
-                Alternate Number<span style={{ color: "red" }}> *</span>
+                Alternate Number
               </strong>
               <input
               id="8"
@@ -241,20 +241,6 @@ const Homecard = () => {
                 placeholder="Enter Alternate Number"
                 aria-label="default input example"
               ></input>
-            </div>
-          </div>
-          <div className="row mt-2">
-            <div className="col-md-3"></div>
-            <div className="col-md-6">
-              <strong style={{ fontFamily: "Roboto" }}>
-                Requirement<span style={{ color: "red" }}> *</span>
-              </strong>
-              <select onChange={handleQuery} className="form-select mt-1">
-                <option selected>Select Requirement</option>
-                <option value="Query One">Query One</option>
-                <option value="Query Two">Query Two</option>
-                <option value="Query Three">Query Three</option>
-              </select>
             </div>
           </div>
           <div className="row mt-2">
