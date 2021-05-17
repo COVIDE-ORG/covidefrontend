@@ -3,46 +3,10 @@ import "./tabs.css";
 import { Link } from "react-router-dom";
 import techTeam from "../assets/tt.png";
 import volunteerTeamIcon from "../assets/vt.png";
-import iot from "../assets/iot.webp";
-import tph from "../assets/tph.jpg";
-import msac from "../assets/msac.png";
 import  society from "../assets/society.png"
 
 const Homecard = () => {
 
-  const societies = [
-    {
-      society: 'IoT Lab KiiT',
-      image: iot,
-    },
-    {
-      society: 'TPH KiiT',
-      image: tph
-    },
-    {
-      society: 'MSAC KiiT',
-      image: msac
-    },
-  ]
-
-
-  function shuffle(array) {
-    var m = array.length, t, i;
-  
-    
-    while (m) {
-  
-      
-      i = Math.floor(Math.random() * m--);
-  
-      
-      t = array[m];
-      array[m] = array[i];
-      array[i] = t;
-    }
-  
-    return array;
-  }
   return (
     <>
       <div

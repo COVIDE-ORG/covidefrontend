@@ -86,7 +86,7 @@ const Homecard = () => {
                     height: "150px",
                     borderRadius: "50%",
                     objectFit: "cover",
-                    border: "5px solid green",
+                    border: "5px solid #11698D",
                     padding: "5px",
                   }}
                 />

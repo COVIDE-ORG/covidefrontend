@@ -1,6 +1,6 @@
 import { React } from "react";
 import "./tabs.css";
-import volunteerTeamIcon from "../assets/vt.png"
+
 
 
 const Homecard = () => {
@@ -573,7 +573,7 @@ const Homecard = () => {
     {volunteerTeam?shuffle(volunteerTeam).map((person)=>{
       return (
         <div className="col-md-3">
-        <img src={person.image} alt="none" style={{width: "150px",height:"150px",borderRadius:"50%",objectFit:"cover",border: "5px solid green", padding: "5px"}} />
+        <img src={person.image} alt="none" style={{width: "150px",height:"150px",borderRadius:"50%",objectFit:"cover",border: "5px solid #11698D", padding: "5px"}} />
         <h6 className="mt-3">{person.name} <br />
         {person.society}</h6>
       </div>
