@@ -12,11 +12,15 @@ const Homecard = () => {
   const [aname,setAname]=useState("");
   const [contact, setContact] = useState("");
   const [altNo,setAlt] = useState("");
+  const [covidSatus,setStatus] = useState("");
   
 
 
   const handleName = (e) => {
     setName(e.target.value);
+  };
+  const handleCovidStatus = (e) => {
+    setStatus(e.target.value);
   };
   const handlePlace = (e) => {
     setPlace(e.target.value);
@@ -56,11 +60,12 @@ const Homecard = () => {
       Requirement: query,
       AttendantName: aname,
       ContactNo: contact,
-      AlternateNo: altNo
+      AlternateNo: altNo,
+      CovidPositive: covidSatus
 
     };
-    if (name && contact && query && place && age && spo2 && admittedIn && aname) {
-      fetch("https://covidresources.org.in/api/help/create", {
+    if (name && contact && query && place && age && spo2 && admittedIn && aname && covidSatus) {
+      fetch("https://covidresources.org.in/api/help/cdreate", {
         method: "post",
         headers: {
           Accept: "application/json",
@@ -91,6 +96,7 @@ const Homecard = () => {
             document.getElementById("6").value="";
             document.getElementById("7").value="";
             document.getElementById("8").value="";
+            document.getElementById("9").selectedIndex = "0";
           } else {
             console.log(res.status);
             alert("Something Went Wrong");
@@ -101,7 +107,7 @@ const Homecard = () => {
           console.log(err);
         });
     } else {
-      alert("Please fill Mandatory Fields");
+      alert("Please fill all Mandatory Fields");
     }
   };
   return (
@@ -131,6 +137,27 @@ const Homecard = () => {
               Ask For Help
             </span>
           </nav>
+          <div className="homeSelect mt-3">
+            <div>
+              <strong style={{ fontFamily: "Roboto" }}>
+                Are you Covid Positive<span style={{ color: "red" }}> *</span>
+              </strong>
+              <select
+                    id="9"
+                    className="form-select mt-2"
+                    aria-label="Default select example"
+                    style={{ marginLeft: "0" }}
+                    onChange={handleCovidStatus}
+                  >
+                    <option value="" defaultValue>
+                      Select
+                    </option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+
+                  </select>
+            </div>
+          </div>
           <div className="homeSelect mt-3">
             <div>
               <strong style={{ fontFamily: "Roboto" }}>

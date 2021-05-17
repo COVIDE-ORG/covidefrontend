@@ -2,7 +2,7 @@ import { React } from "react";
 import "./tabs.css";
 import iot from "../assets/iot.webp";
 import tph from "../assets/tph.jpg";
-import msac from "../assets/msac.png";
+import msac from "../assets/msac.jpg";
 import desire from "../assets/desire.png"
 
 const Homecard = () => {
