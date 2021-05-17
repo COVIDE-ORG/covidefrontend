@@ -203,6 +203,9 @@ const Homecard = () => {
                     <option value="plasma">Plasma</option>
                     <option value="ambulance">Ambulance</option>
                     <option value="meds">Medicines</option>
+                    <option value="volunteers">Volunteers</option>
+                    <option value="misc">Miscellaneous</option>
+
                   </select>
                     </div>
 
