@@ -35,7 +35,7 @@ const closeModal = () => {
       <Header/>
       <Card/>
       <Footer/>
-      <div className="modal fade" style={{zIndex: "999999"}} id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
+      <div className="modal fade" style={{zIndex: "999999"}} id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
     role="dialog">
     <div className="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
         <div className="modal-content">

@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import Table from "./ResourceTable";
 import "./tabs.css";
+import HashLoader from "react-spinners/HashLoader";
 
 const Homecard = () => {
   const [datas, setDatas] = useState([]);
@@ -8,62 +9,197 @@ const Homecard = () => {
   const [filteredData, setFilter] = useState([]);
   const [filteredHeaders, setHeaders] = useState([]);
   const [plasma, setPlasma] = useState([]);
-  const[plasmaIndex,setPlasmaIndex] = useState(null);
-  const[cityIndex,setCityIndex] = useState(null);
-  const[stateIndex,setStateIndex] = useState(null);
-  const[filterButton,setFilterButton] =useState(null);
+  const [plasmaIndex, setPlasmaIndex] = useState(null);
+  const [cityIndex, setCityIndex] = useState(null);
+  const [stateIndex, setStateIndex] = useState(null);
+  const [filterButton, setFilterButton] = useState(null);
+  const[loading,setLoading] = useState(false);
 
-  useEffect(() => {}, []);
+  const [oxygenData, setOxygenData] = useState([]);
+  const [bedsData, setBedData] = useState([]);
+  const [plasmaData, setPlasmaData] = useState([]);
+  const [ambulanceData, setAmbulanceData] = useState([]);
+  const [medsData, setMedicineData] = useState([]);
+  const [volunteersData, setVolunteersData] = useState([]);
+  const [miscData, setMiscData] = useState([]);
+
+  useEffect(() => {
+    setLoading(true)
+    Promise.all([fetch(`https://covidresources.org.in/api/resource/oxygen`)
+      .then((response) => response.json()),
+    fetch(`https://covidresources.org.in/api/resource/beds`)
+      .then((response) => response.json()),
+    fetch(`https://covidresources.org.in/api/resource/plasma`)
+      .then((response) => response.json()),
+    fetch(`https://covidresources.org.in/api/resource/ambulance`)
+      .then((response) => response.json()),
+    fetch(`https://covidresources.org.in/api/resource/volunteers`)
+      .then((response) => response.json()),
+    fetch(`https://covidresources.org.in/api/resource/meds`)
+      .then((response) => response.json()),
+    fetch(`https://covidresources.org.in/api/resource/misc`)
+      .then((response) => response.json())])
+    .then(([d1,d2,d3,d4,d5,d6,d7])=>{
+        setOxygenData(d1);
+        setBedData(d2);
+        setPlasmaData(d3);
+        setAmbulanceData(d4);
+        setVolunteersData(d5);
+        setMedicineData(d6);
+        setMiscData(d7);
+        setLoading(false)
+      }).catch(err =>{
+        alert("Something Went Wrong")
+      })
+  
+  }, []);
+
+  // const fetchResource = () => {
+  //   if(!document.getElementById("rname").value){
+  //     return;
+  //   }
+  //   setFilterButton(buttonText());
+  //   document.getElementById("plasmaButton").style.display = "none";
+  //   document.getElementById("alert").style.display = "none"
+  //   document.getElementById("tbs").innerHTML = "Please Wait";
+  //   document.getElementById("tbs").disabled = true;
+  //   document.getElementById("tbs2").innerHTML = "Please Wait";
+  //   document.getElementById("tbs2").disabled = true;
+  //   const rname = document.getElementById("rname").value.toLowerCase();
+  //   if (rname) {
+  //     fetch(`https://covidresources.org.in/api/resource/${rname}`)
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         setDatas(data);
+  //         if(rname === "plasma"){
+  //           setPlasmaIndex(data.headers.indexOf("Blood Group"))
+  //         }else if(rname === "beds"){
+  //           setPlasmaIndex(data.headers.indexOf("Type of Bed"))
+  //         }else if(rname === "meds"){
+  //           setPlasmaIndex(data.headers.indexOf("Medicine Name"))
+  //         }else if(rname === "misc"){
+  //           setPlasmaIndex(data.headers.indexOf("Services "))
+  //         }
+  //         setCityIndex(data.headers.indexOf("City"))
+  //         setStateIndex(data.headers.indexOf("State"))
+  //         document.getElementById("tbs").innerHTML = "Search";
+  //         document.getElementById("tbs").disabled = false;
+  //         document.getElementById("tbs2").innerHTML = "Search";
+  //         document.getElementById("tbs2").disabled = false;
+  //         document.getElementById("state").selectedIndex = "0";
+  //         setcities([]);
+  //       });
+  //   }
+  // };
 
   const fetchResource = () => {
-    if(!document.getElementById("rname").value){
+    if (!document.getElementById("rname").value) {
       return;
     }
     setFilterButton(buttonText());
     document.getElementById("plasmaButton").style.display = "none";
-    document.getElementById("alert").style.display = "none"
+    document.getElementById("alert").style.display = "none";
     document.getElementById("tbs").innerHTML = "Please Wait";
     document.getElementById("tbs").disabled = true;
     document.getElementById("tbs2").innerHTML = "Please Wait";
     document.getElementById("tbs2").disabled = true;
     const rname = document.getElementById("rname").value.toLowerCase();
-    if (rname) {
-      fetch(`https://covidresources.org.in/api/resource/${rname}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setDatas(data);
-          if(rname === "plasma"){
-            setPlasmaIndex(data.headers.indexOf("Blood Group"))
-          }else if(rname === "beds"){
-            setPlasmaIndex(data.headers.indexOf("Type of Bed"))
-          }else if(rname === "meds"){
-            setPlasmaIndex(data.headers.indexOf("Medicine Name"))
-          }else if(rname === "misc"){
-            setPlasmaIndex(data.headers.indexOf("Services "))
-          }
-          setCityIndex(data.headers.indexOf("City"))
-          setStateIndex(data.headers.indexOf("State"))
-          document.getElementById("tbs").innerHTML = "Search";
-          document.getElementById("tbs").disabled = false;
-          document.getElementById("tbs2").innerHTML = "Search";
-          document.getElementById("tbs2").disabled = false;
-          document.getElementById("state").selectedIndex = "0";
-          setcities([]);
-        });
+    if (rname === "oxygendata") {
+      setDatas(oxygenData);
+      setCityIndex(oxygenData.headers.indexOf("City"));
+      setStateIndex(oxygenData.headers.indexOf("State"));
+      document.getElementById("tbs").innerHTML = "Search";
+      document.getElementById("tbs").disabled = false;
+      document.getElementById("tbs2").innerHTML = "Search";
+      document.getElementById("tbs2").disabled = false;
+      document.getElementById("state").selectedIndex = "0";
+      setcities([]);
+    } else if (rname === "bedsdata") {
+      setDatas(bedsData);
+      if (rname === "bedsdata") {
+        setPlasmaIndex(bedsData.headers.indexOf("Type of Bed"));
+      } 
+      setCityIndex(bedsData.headers.indexOf("City"));
+      setStateIndex(bedsData.headers.indexOf("State"));
+      document.getElementById("tbs").innerHTML = "Search";
+      document.getElementById("tbs").disabled = false;
+      document.getElementById("tbs2").innerHTML = "Search";
+      document.getElementById("tbs2").disabled = false;
+      document.getElementById("state").selectedIndex = "0";
+      setcities([]);
+    } else if (rname === "plasmadata") {
+      setDatas(plasmaData);
+      if (rname === "plasmadata") {
+        setPlasmaIndex(plasmaData.headers.indexOf("Blood Group"));
+      } 
+      setCityIndex(plasmaData.headers.indexOf("City"));
+      setStateIndex(plasmaData.headers.indexOf("State"));
+      document.getElementById("tbs").innerHTML = "Search";
+      document.getElementById("tbs").disabled = false;
+      document.getElementById("tbs2").innerHTML = "Search";
+      document.getElementById("tbs2").disabled = false;
+      document.getElementById("state").selectedIndex = "0";
+      setcities([]);
+    } else if (rname === "ambulancedata") {
+      setDatas(ambulanceData);
+      setCityIndex(ambulanceData.headers.indexOf("City"));
+      setStateIndex(ambulanceData.headers.indexOf("State"));
+      document.getElementById("tbs").innerHTML = "Search";
+      document.getElementById("tbs").disabled = false;
+      document.getElementById("tbs2").innerHTML = "Search";
+      document.getElementById("tbs2").disabled = false;
+      document.getElementById("state").selectedIndex = "0";
+      setcities([]);
+    } else if (rname === "medsdata") {
+      setDatas(medsData);
+      if (rname === "medsdata") {
+        setPlasmaIndex(medsData.headers.indexOf("Medicine Name"));
+      }
+      setCityIndex(medsData.headers.indexOf("City"));
+      setStateIndex(medsData.headers.indexOf("State"));
+      document.getElementById("tbs").innerHTML = "Search";
+      document.getElementById("tbs").disabled = false;
+      document.getElementById("tbs2").innerHTML = "Search";
+      document.getElementById("tbs2").disabled = false;
+      document.getElementById("state").selectedIndex = "0";
+      setcities([]);
+    } else if (rname === "volunteersdata") {
+      setDatas(volunteersData);
+      setCityIndex(volunteersData.headers.indexOf("City"));
+      setStateIndex(volunteersData.headers.indexOf("State"));
+      document.getElementById("tbs").innerHTML = "Search";
+      document.getElementById("tbs").disabled = false;
+      document.getElementById("tbs2").innerHTML = "Search";
+      document.getElementById("tbs2").disabled = false;
+      document.getElementById("state").selectedIndex = "0";
+      setcities([]);
+    } else if (rname === "miscdata") {
+      setDatas(miscData);
+      if (rname === "miscdata") {
+        setPlasmaIndex(miscData.headers.indexOf("Services "));
+      }
+      setCityIndex(miscData.headers.indexOf("City"));
+      setStateIndex(miscData.headers.indexOf("State"));
+      document.getElementById("tbs").innerHTML = "Search";
+      document.getElementById("tbs").disabled = false;
+      document.getElementById("tbs2").innerHTML = "Search";
+      document.getElementById("tbs2").disabled = false;
+      document.getElementById("state").selectedIndex = "0";
+      setcities([]);
     }
   };
 
-  const buttonText =() =>{
-    if(document.getElementById("rname").value === "plasma"){
-      return ("Blood Group")
-    }else if(document.getElementById("rname").value === "beds"){
-      return ("Bed Type")
-    }else if(document.getElementById("rname").value === "meds"){
-      return ("Medicine Name")
-    }else if(document.getElementById("rname").value === "misc"){
-      return ("Services")
+  const buttonText = () => {
+    if (document.getElementById("rname").value === "plasmaData") {
+      return "Blood Group";
+    } else if (document.getElementById("rname").value === "bedsData") {
+      return "Bed Type";
+    } else if (document.getElementById("rname").value === "medsData") {
+      return "Medicine Name";
+    } else if (document.getElementById("rname").value === "miscData") {
+      return "Services";
     }
-  }
+  };
   const chooseBloodGroup = () => {
     search();
     document.getElementById("plasmaBar").style.display = "unset";
@@ -74,7 +210,12 @@ const Homecard = () => {
   function plasmaFilter() {
     const filtered = filteredData
       .map((data) => {
-        if (data[plasmaIndex] === document.getElementById("bgroup").value || data[plasmaIndex] ==="All Blood Groups" || data[plasmaIndex] === "All Medicines" || data[plasmaIndex] ==="All Types of Bed") {
+        if (
+          data[plasmaIndex] === document.getElementById("bgroup").value ||
+          data[plasmaIndex] === "All Blood Groups" ||
+          data[plasmaIndex] === "All Medicines" ||
+          data[plasmaIndex] === "All Types of Bed"
+        ) {
           return data;
         } else return "";
       })
@@ -88,7 +229,12 @@ const Homecard = () => {
   }
 
   const fetchPlasma = () => {
-    if (document.getElementById("rname").value === "plasma" || document.getElementById("rname").value === "beds" || document.getElementById("rname").value === "meds" || document.getElementById("rname").value === "misc" ) {
+    if (
+      document.getElementById("rname").value === "plasmaData" ||
+      document.getElementById("rname").value === "bedsData" ||
+      document.getElementById("rname").value === "medsData" ||
+      document.getElementById("rname").value === "miscData"
+    ) {
       setPlasma(
         datas.data
           .map((plasma) => plasma[plasmaIndex])
@@ -118,8 +264,8 @@ const Homecard = () => {
   };
 
   function search() {
-    if(!document.getElementById("rname").value){
-      document.getElementById("alert").style.display = "unset"
+    if (!document.getElementById("rname").value) {
+      document.getElementById("alert").style.display = "unset";
       return;
     }
 
@@ -159,8 +305,14 @@ const Homecard = () => {
   }
   return (
     <>
-    
       {/* {JSON.stringify(plasma)} */}
+      {
+        loading ?
+        <div style={{textAlign:"center",display:"flex",justifyContent: "center",alignItems:"center", width:"100%",height:"80vh"}}>
+        <HashLoader color="#11698D" loading={loading} css="" size={150} />
+        </div>
+        :
+      
       <div
         className="card dcard mb-5"
         style={{
@@ -171,10 +323,10 @@ const Homecard = () => {
         }}
       >
         <div className="card-body">
-          <div id="alert" style={{display:"none"}}>
-          <div className="alert alert-danger" role="alert">
-            Please Select Resource
-          </div>
+          <div id="alert" style={{ display: "none" }}>
+            <div className="alert alert-danger" role="alert">
+              Please Select Resource
+            </div>
           </div>
           <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li className="nav-item" role="presentation">
@@ -204,10 +356,9 @@ const Homecard = () => {
               role="tabpanel"
               aria-labelledby="pills-home-tab"
             >
-
-                  <div className="row">
-                    <div className="col-md-4">
-                    <strong style={{ fontFamily: "Roboto" }}>
+              <div className="row">
+                <div className="col-md-4">
+                  <strong style={{ fontFamily: "Roboto" }}>
                     Select Resource<span style={{ color: "red" }}> *</span>
                   </strong>
                   <select
@@ -220,19 +371,18 @@ const Homecard = () => {
                     <option value="" defaultValue>
                       Select Resource
                     </option>
-                    <option value="oxygen">Oxygen</option>
-                    <option value="beds">Beds</option>
-                    <option value="plasma">Plasma</option>
-                    <option value="ambulance">Ambulance</option>
-                    <option value="meds">Medicines</option>
-                    <option value="volunteers">Volunteers</option>
-                    <option value="misc">Miscellaneous</option>
-
+                    <option value="oxygenData">Oxygen</option>
+                    <option value="bedsData">Beds</option>
+                    <option value="plasmaData">Plasma</option>
+                    <option value="ambulanceData">Ambulance</option>
+                    <option value="medsData">Medicines</option>
+                    <option value="volunteersData">Volunteers</option>
+                    <option value="miscData">Miscellaneous</option>
                   </select>
-                    </div>
+                </div>
 
-                    <div className="col-md-4">
-                    <strong style={{ fontFamily: "Roboto" }}>Select State</strong>
+                <div className="col-md-4">
+                  <strong style={{ fontFamily: "Roboto" }}>Select State</strong>
                   <select
                     id="state"
                     className="form-select mt-2"
@@ -250,9 +400,9 @@ const Homecard = () => {
                         ))
                       : ""}
                   </select>
-                    </div>
-                    <div className="col-md-4">
-                    <strong style={{ fontFamily: "Roboto" }}>Select City</strong>
+                </div>
+                <div className="col-md-4">
+                  <strong style={{ fontFamily: "Roboto" }}>Select City</strong>
                   <select
                     className="form-select mt-2"
                     id="city"
@@ -274,9 +424,8 @@ const Homecard = () => {
                         })
                       : ""}
                   </select>
-                    </div>
-
-                  </div>
+                </div>
+              </div>
 
               {/* {JSON.stringify(filteredData)} */}
 
@@ -302,7 +451,8 @@ const Homecard = () => {
                   </button>
                   <div id="plasmaBar" style={{ display: "none" }}>
                     <strong style={{ fontFamily: "Roboto" }}>
-                      {filterButton}<span style={{ color: "red" }}> *</span>
+                      {filterButton}
+                      <span style={{ color: "red" }}> *</span>
                     </strong>
                     <select
                       id="bgroup"
@@ -347,8 +497,17 @@ const Homecard = () => {
                 <div className="card-body">
                   Important Note:
                   <p style={{ fontSize: "small", color: "gray" }}>
-                  By using the website, you agree and understand that any information provided in the website on an as-is basis may change anytime without any notification or intimation. You also understand that the resources being provided are crowdsourced and TPH or any of its members do not take responsibility for the truth of any information provided in the website.
-                  <br/>People using the platform are advised to use caution and do their own research and due diligence before using the resources provided. 
+                    By using the website, you agree and understand that any
+                    information provided in the website on an as-is basis may
+                    change anytime without any notification or intimation. You
+                    also understand that the resources being provided are
+                    crowdsourced and TPH or any of its members do not take
+                    responsibility for the truth of any information provided in
+                    the website.
+                    <br />
+                    People using the platform are advised to use caution and do
+                    their own research and due diligence before using the
+                    resources provided.
                   </p>
                 </div>
               </div>
@@ -358,7 +517,7 @@ const Homecard = () => {
                   <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div> */}
           </div>
         </div>
-      </div>
+      </div>}
     </>
   );
 };
