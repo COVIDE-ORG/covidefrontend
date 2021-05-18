@@ -11,75 +11,81 @@ const Homecard = () => {
     },
     {
       name: "Sambit Majhi",
-      society: "IoT Lab KIIT",
-      teamType: "Tech Team",
+      society: "IoT Lab KiiT",
+      "D": "Tech Team",
       image: "https://drive.google.com/thumbnail?id=1lXZABk8btOrRO3ANV5p4gP_hXfFEpejl"
     },
     {
       name: "Sambit Saha",
-      society: "IoT Lab KIIT",
-      teamType: "Tech Team",
+      society: "IoT Lab KiiT",
+      "D": "Tech Team",
       image: "https://drive.google.com/thumbnail?id=1-Nr2c4seUnNvR0HFACkVmqP-oqZ6WKSi"
     },
     {
       name: "Abhishek Raj",
       society: "",
-      teamType: "Tech Team",
+      "D": "Tech Team",
       image: "https://drive.google.com/thumbnail?id=1C6hVsLd898XotnqyRBtSm8eNyYq6cVpK"
     },
     {
       name: "Nikhil Srivastava",
       society: "",
-      teamType: "Tech Team",
+      "D": "Tech Team",
       image: "https://drive.google.com/thumbnail?id=1Z6WfPuqjxMq5eQoEOrWwFZjV4i5Rj165"
     },
     {
       name: "Saatwik",
       society: "MSAC",
-      teamType: "Tech Team",
+      "D": "Tech Team",
       image: "https://drive.google.com/thumbnail?id=1fFJXM6eGIWxnLhlfDlf9MLAaTlqJ9X6S"
     },
     {
       name: "Mohit Patel",
-      society: "IoT Lab, KIIT",
-      teamType: "Tech Team",
+      society: "IoT Lab, KiiT",
+      "D": "Tech Team",
       image: "https://drive.google.com/thumbnail?id=1J-YMMp5g8ZmoHW2zMCyF-ncZLz19Puur"
     },
     {
       name: "Akash Raj",
       society: "TPH",
-      teamType: "Tech Team",
+      "D": "Tech Team",
       image: "https://drive.google.com/thumbnail?id=1zTNkuhNMZ1W49NyEQLlFPTPc9DEZVYpu"
     },
     {
       name: "Sakshi Gairola",
-      society: "IoT Lab KIIT",
-      teamType: "Tech Team",
+      society: "IoT Lab, KiiT",
+      "D": "Tech Team",
       image: "https://drive.google.com/thumbnail?id=1O8-I8NA7Qyz7i_pZSWCgw0O9szsUlX3R"
     },
     {
       name: "Sagnik Ghosh",
       society: "MSAC",
-      teamType: "Tech Team",
+      "D": "Tech Team",
       image: "https://drive.google.com/thumbnail?id=1_dkDGVYA_dCHGmleS0bq052rdVRlg0tu"
-    },
-    {
-      name: "Abhinav Karthikeya",
-      society: "Desire Foundation",
-      teamType: "Tech Team",
-      image: "https://drive.google.com/thumbnail?id=1QiH6KT6LYVQg8c8wDQ_cCTTGkAtJtd5W"
     },
     {
       name: "Kartik Budhraja",
       society: "Kindle",
-      teamType: "Tech Team",
+      "D": "Tech Team",
       image: "https://drive.google.com/thumbnail?id=1ip8Bby23mgStYAY3H65cXCaiaqJF_0Un"
     },
     {
       name: "Rudit Rahul",
       society: "TPH",
-      teamType: "Tech Team",
+      "D": "Tech Team",
       image: "https://drive.google.com/thumbnail?id=1JvGajzRzAReAoL0DHduUAbXowW_EVDCH"
+    },
+    {
+      name: "Lekhansh Ruprela",
+      society: "",
+      "D": "Tech Team",
+      image: "https://drive.google.com/thumbnail?id=1xBgCKpmFqzcz2iFRWMhE5r-qVGPzIcug"
+    },
+    {
+      name: "Sanchit Hajela",
+      society: "IoT Lab, KiiT",
+      "D": "Tech Team",
+      image: "https://drive.google.com/thumbnail?id=1D3tNsZ1fRlBUmm_rvty3gWD1UYSBmneF"
     }
   ]
 

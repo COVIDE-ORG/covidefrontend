@@ -272,7 +272,6 @@ const Homecard = () => {
           </div>
           <div className="row mt-2">
             <div className="col-md-12 text-center">
-              <h6>OR</h6>
             </div>
           </div>
           <div className="row">

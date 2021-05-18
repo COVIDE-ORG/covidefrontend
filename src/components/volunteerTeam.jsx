@@ -216,6 +216,12 @@ const Homecard = () => {
       image: "https://drive.google.com/thumbnail?id=1SkoKJArWDN2iaFF5d5mjDNnvcna-mVLU"
     },
     {
+      name: "Abhinav Karthikeya",
+      society: "Desire Foundation",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1QiH6KT6LYVQg8c8wDQ_cCTTGkAtJtd5W"
+    },
+    {
       name: "Sharanya Pattnaik",
       society: "TPH",
       "D": "Volunteer Team",
@@ -325,7 +331,7 @@ const Homecard = () => {
     },
     {
       name: "Smriti Priya Shah",
-      society: "Tph",
+      society: "TPH",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=1leHInoO9bMAEOMgY3jVVi4NoT5ISGUqT"
     },
@@ -427,7 +433,7 @@ const Homecard = () => {
     },
     {
       name: "Ishita  Arya",
-      society: "TPH ",
+      society: "TPH",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=1ecg1E6ZTwy7JNa-C9u_zfUffe9SyGkYM"
     },
@@ -520,6 +526,180 @@ const Homecard = () => {
       society: "TPH",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=1NFJCwzRCARmSdbr3gK14BMgOmADvD4Is"
+    },
+    {
+      name: "Arsalan Ahmad",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=16rbCCVc2WUexd2RLYIwg1agqMBWAgOVd"
+    },
+    {
+      name: "Meghna Gupta",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=18pbH7zQMMF2wdcnyxFvxBBLZuHpP1QmQ"
+    },
+    {
+      name: "Snehashree Sanghamitra ",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1s7y-mhBhNcakJ5GIr5Zl2BKBAAPquNQ-"
+    },
+    {
+      name: "Suvannita Ganguly",
+      society: "NSS",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1vTHIFIqD0IWHsHch-ihNDdKgppWDtYxP"
+    },
+    {
+      name: "Sweksha Sharma",
+      society: "Desire Foundation",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1y1oA0P0OL_FmakuLF-LiY2OqzxkHMuP9"
+    },
+    {
+      name: "Ankita Sarangi",
+      society: "NSS SCE",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1Eya4hAAC6AqL0rtSLcHL3mkv8bAp_1-1"
+    },
+    {
+      name: "Jyotsana",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1eZ9uzZsDEfj3bUASLxiHSue0K21JqXw6"
+    },
+    {
+      name: "Aaishwarya Halder",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1fQ-APEuhGAihSH0eWI-vLw_sUpRCtePP"
+    },
+    {
+      name: "Diksha Pranjali",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1fX4Rme6mKJYNRhU5aCLqRUGGXp_yHdfV"
+    },
+    {
+      name: "Dhriti Goswami",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1Rzu1hYn2tXFg3kKErpLLtQ94QkP4QulO"
+    },
+    {
+      name: "Soumyadeep Mandal",
+      society: "NSS SCE",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1D61HWrlTFMk5Vc4hLbqs_-3MOLKu1Y_0"
+    },
+    {
+      name: "Ritesh Kumar",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1DVOELy-TTQ3fXipUeo0krT8kEnKHEt6k"
+    },
+    {
+      name: "Stuti Pathak",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1pkxfHYA1c3qNIl6a5TI5DqUGOoutzZtm"
+    },
+    {
+      name: "Ipsita Dash",
+      society: "NSS SCE",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=18dBloK72590-hwHyTU8Zi961SHaHoHao"
+    },
+    {
+      name: "Sandali Khare",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1E92oRc18FOh4DLlGfQWbpK9k6zREAW28"
+    },
+    {
+      name: "Shubhangi Rastogi",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=195ArcMzQwGpEvNqGRO1et5dI-p1Eo69Q"
+    },
+    {
+      name: "Yash . ",
+      society: "NSS SCE",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1i3CzUp2iS1aAvvedgJwdvfZp6KAXH-RE"
+    },
+    {
+      name: "Priyanshu Sinha",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1HLIgeujIQvmIaM1zBXUPU4f3myW5m25Z"
+    },
+    {
+      name: "Snigdha Khanna",
+      society: "NSS SCE",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=10OkOX5Jz3UQa1cS-4uQg5x-BfMWeb5xt"
+    },
+    {
+      name: "Shreeja Verma",
+      society: "NSS",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1rpgmYUQtAXISzaUI5OUl_ZoOcBZoNHzb"
+    },
+    {
+      name: "Lekhansh Ruprela",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1AKIj4k2fRNUu21nlq8kIgYxgZ06Jk-yO"
+    },
+    {
+      name: "Shubhkirti Gupta",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1z_J0vkSO322wj7cnCiHlxHYZG0Q5QQJW"
+    },
+    {
+      name: "Tanisha Agarwal",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1VPgyrN_-ioWDN2GurJCl9zgGkZoW3lRO"
+    },
+    {
+      name: "Ashish Kumar",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1wTsRoDVXZV-wkgmve1gBHe0j3LjlAX1J"
+    },
+    {
+      name: "Chaitanya Mohan Sharma",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1mW-4mckCNoSZQVnXx3PfNmEsxZTh3IMD"
+    },
+    {
+      name: "Khushi Kumari",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1IJYDRwWPbnvcXf9G-nZaIHXdJAC-PZ65"
+    },
+    {
+      name: "Snehal Shreya Toppo",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1RsIY24sabOrD28CFDl9aKWHtuVvtWwDH"
+    },
+    {
+      name: "Devansh Kashyap",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1iLKOaxR1xeUF7jrOqcm7iG5kMeoj8oRz"
+    },
+    {
+      name: "Jyoti Prakash Dixit",
+      society: "NSS SCE",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1f9jwOoEdJeaXwM23zbrB-EAXSLogmgRT"
     }
   ]
 

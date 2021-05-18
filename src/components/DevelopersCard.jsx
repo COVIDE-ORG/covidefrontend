@@ -2,8 +2,8 @@ import { React } from "react";
 import "./tabs.css";
 import { Link } from "react-router-dom";
 import techTeam from "../assets/tt.png";
-import volunteerTeamIcon from "../assets/vt.jpg";
-import  society from "../assets/society.jpg"
+import volunteerTeamIcon from "../assets/vt.png";
+import  society from "../assets/society.png"
 
 const Homecard = () => {
 
@@ -38,7 +38,7 @@ const Homecard = () => {
               className="card text-center mt-2"
               style={{ width: "18rem", border: "none", }}
             >
-              <img className="card-img-top" src={techTeam} alt="Card" style={{height:"150px",width:"150px",alignSelf: "center"}}/>
+              <img className="card-img-top" src={techTeam} alt="Card" style={{height:"150px",width:"210px",alignSelf: "center"}}/>
               <div className="card-body">
                 <h5 className="card-title">Tech Team</h5>
                 <Link

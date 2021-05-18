@@ -1,5 +1,7 @@
 import React from 'react'
 import {Link, withRouter} from 'react-router-dom';
+import logo from "../assets/CFIL.png"
+import "./header.css"
 const Header =() => {
     return (
         <>
@@ -9,7 +11,7 @@ const Header =() => {
                   <span className="navbar-toggler-icon"></span>
                 </button>
                 <Link className="nav-link" to="/">
-                <span className="navbar-brand" style={{paddingLeft: "100px",color:"white"}}>Covid Free India</span></Link>
+                <span className="navbar-brand" style={{color:"white"}}><img id="logo" src={logo} alt=""  style={{height: "40px",marginTop:"-13px",marginBottom:"-6px"}}/>Covid Free India</span></Link>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   </ul>
