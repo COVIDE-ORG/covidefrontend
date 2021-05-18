@@ -3,7 +3,9 @@ import Header from './components/header'
 import Card from './components/homecard'
 import Footer from './components/footer'
 import Cookies from 'universal-cookie';
-import './index.css'
+import './index.css';
+import { Helmet } from 'react-helmet';
+
 
 function App() {
 
@@ -32,6 +34,13 @@ const closeModal = () => {
 }
   return (
    <>
+   <Helmet>
+        <title>Covid Resources</title>
+        <meta
+      name="description"
+      content="A comprehensive resource list of Oxygen, Ambulance Services, Plasma, Remdesivir, Tocilizumab Hospital Beds in India. COVID 19 India Help- View all verified resources, ranging from Pan-India to State-wise COVID-19 Resource Lists. Verified leads for Plasma, Ambulance, Oxygen, Remdesivir and Hospital Beds to help in COVID 19 emergencies in India."
+    />
+    </Helmet>
       <Header/>
       <Card/>
       <Footer/>
