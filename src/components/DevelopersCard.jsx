@@ -42,7 +42,7 @@ const Homecard = () => {
               <div className="card-body">
                 <h5 className="card-title">Tech Team</h5>
                 <Link
-                  to="/ourteam/techteam"
+                  to="/techteam"
                   className="btn btn-outline-secondary cbtn"
                 >
                   Visit Tech Team
@@ -58,7 +58,7 @@ const Homecard = () => {
               <div className="card-body">
                 <h5 className="card-title">Volunteer Team</h5>
                 <Link
-                  to="/ourteam/volunteerteam"
+                  to="/volunteerteam"
                   className="btn btn-outline-secondary cbtn"
                 >
                   Visit Volunteer Team
@@ -73,7 +73,7 @@ const Homecard = () => {
               <div className="card-body">
                 <h5 className="card-title">Societies Involved</h5>
                 <Link
-                  to="/ourteam/societies"
+                  to="/societies"
                   className="btn btn-outline-secondary cbtn"
                 >
                   Visit Societies

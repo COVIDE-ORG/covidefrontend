@@ -26,7 +26,7 @@ const Header =() => {
                     <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/askforhelp">Ask for Help</Link>
                     </li>
                     <li className="nav-item">
-                    <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/volunteers">Join our Team</Link>
+                    <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/volunteers">Contribute</Link>
                     </li><li className="nav-item">
                     <Link className="nav-link"  style={{marginRight:"40px",color:"white"}} to="/ourteam">Our Team</Link>
                     </li>

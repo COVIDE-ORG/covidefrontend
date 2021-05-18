@@ -11,6 +11,7 @@ const Homecard = () => {
   const[plasmaIndex,setPlasmaIndex] = useState(null);
   const[cityIndex,setCityIndex] = useState(null);
   const[stateIndex,setStateIndex] = useState(null);
+  const[filterButton,setFilterButton] =useState(null);
 
   useEffect(() => {}, []);
 
@@ -18,6 +19,8 @@ const Homecard = () => {
     if(!document.getElementById("rname").value){
       return;
     }
+    setFilterButton(buttonText());
+    document.getElementById("plasmaButton").style.display = "none";
     document.getElementById("alert").style.display = "none"
     document.getElementById("tbs").innerHTML = "Please Wait";
     document.getElementById("tbs").disabled = true;
@@ -31,6 +34,12 @@ const Homecard = () => {
           setDatas(data);
           if(rname === "plasma"){
             setPlasmaIndex(data.headers.indexOf("Blood Group"))
+          }else if(rname === "beds"){
+            setPlasmaIndex(data.headers.indexOf("Type of Bed"))
+          }else if(rname === "meds"){
+            setPlasmaIndex(data.headers.indexOf("Medicine Name"))
+          }else if(rname === "misc"){
+            setPlasmaIndex(data.headers.indexOf("Services "))
           }
           setCityIndex(data.headers.indexOf("City"))
           setStateIndex(data.headers.indexOf("State"))
@@ -44,6 +53,17 @@ const Homecard = () => {
     }
   };
 
+  const buttonText =() =>{
+    if(document.getElementById("rname").value === "plasma"){
+      return ("Blood Group")
+    }else if(document.getElementById("rname").value === "beds"){
+      return ("Bed Type")
+    }else if(document.getElementById("rname").value === "meds"){
+      return ("Medicine Name")
+    }else if(document.getElementById("rname").value === "misc"){
+      return ("Services")
+    }
+  }
   const chooseBloodGroup = () => {
     search();
     document.getElementById("plasmaBar").style.display = "unset";
@@ -54,7 +74,7 @@ const Homecard = () => {
   function plasmaFilter() {
     const filtered = filteredData
       .map((data) => {
-        if (data[plasmaIndex] === document.getElementById("bgroup").value || data[plasmaIndex] ==="All") {
+        if (data[plasmaIndex] === document.getElementById("bgroup").value || data[plasmaIndex] ==="All Blood Groups" || data[plasmaIndex] === "All Medicines" || data[plasmaIndex] ==="All Types of Bed") {
           return data;
         } else return "";
       })
@@ -66,8 +86,9 @@ const Homecard = () => {
     document.getElementById("plasmaButton").style.display = "unset";
     return;
   }
+
   const fetchPlasma = () => {
-    if (document.getElementById("rname").value === "plasma") {
+    if (document.getElementById("rname").value === "plasma" || document.getElementById("rname").value === "beds" || document.getElementById("rname").value === "meds" || document.getElementById("rname").value === "misc" ) {
       setPlasma(
         datas.data
           .map((plasma) => plasma[plasmaIndex])
@@ -101,6 +122,7 @@ const Homecard = () => {
       document.getElementById("alert").style.display = "unset"
       return;
     }
+
     fetchPlasma();
     document.getElementById("tableView").style.display = "unset";
     document.getElementById("bsc").style.display = "none";
@@ -150,7 +172,7 @@ const Homecard = () => {
       >
         <div className="card-body">
           <div id="alert" style={{display:"none"}}>
-          <div class="alert alert-danger" role="alert">
+          <div className="alert alert-danger" role="alert">
             Please Select Resource
           </div>
           </div>
@@ -276,11 +298,11 @@ const Homecard = () => {
                     style={{ display: "none" }}
                     onClick={chooseBloodGroup}
                   >
-                    Filter By Blood Group
+                    Filter By {filterButton}
                   </button>
                   <div id="plasmaBar" style={{ display: "none" }}>
                     <strong style={{ fontFamily: "Roboto" }}>
-                      Blood Group<span style={{ color: "red" }}> *</span>
+                      {filterButton}<span style={{ color: "red" }}> *</span>
                     </strong>
                     <select
                       id="bgroup"
@@ -290,7 +312,7 @@ const Homecard = () => {
                       onChange={plasmaFilter}
                     >
                       <option value="" defaultValue>
-                        Any Blood Group
+                        Any Type
                       </option>
                       {plasma
                         ? plasma.map((plasma) => {

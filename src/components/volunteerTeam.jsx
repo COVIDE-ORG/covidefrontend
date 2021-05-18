@@ -103,7 +103,7 @@ const Homecard = () => {
     },
     {
       name: "Muskan Agrawal",
-      society: "NSS",
+      society: "",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=1VLuZekwr7X6KlJ0bRph8ZZqEud4ZRu66"
     },
@@ -199,7 +199,7 @@ const Homecard = () => {
     },
     {
       name: "Shweta Smriti Tripathi",
-      society: "NSS SCE",
+      society: "",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=1YSRdb87z2yRTFjWg5mxrOsoJaoiWmCdd"
     },
@@ -247,7 +247,7 @@ const Homecard = () => {
     },
     {
       name: "Prakhar Singh",
-      society: "NSS",
+      society: "",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=140DdnexG9C2c2Ynw4zSPIG4vZ7mO39Hs"
     },
@@ -547,7 +547,7 @@ const Homecard = () => {
     },
     {
       name: "Suvannita Ganguly",
-      society: "NSS",
+      society: "",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=1vTHIFIqD0IWHsHch-ihNDdKgppWDtYxP"
     },
@@ -559,7 +559,7 @@ const Homecard = () => {
     },
     {
       name: "Ankita Sarangi",
-      society: "NSS SCE",
+      society: "",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=1Eya4hAAC6AqL0rtSLcHL3mkv8bAp_1-1"
     },
@@ -589,7 +589,7 @@ const Homecard = () => {
     },
     {
       name: "Soumyadeep Mandal",
-      society: "NSS SCE",
+      society: "",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=1D61HWrlTFMk5Vc4hLbqs_-3MOLKu1Y_0"
     },
@@ -607,7 +607,7 @@ const Homecard = () => {
     },
     {
       name: "Ipsita Dash",
-      society: "NSS SCE",
+      society: "",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=18dBloK72590-hwHyTU8Zi961SHaHoHao"
     },
@@ -625,7 +625,7 @@ const Homecard = () => {
     },
     {
       name: "Yash . ",
-      society: "NSS SCE",
+      society: "",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=1i3CzUp2iS1aAvvedgJwdvfZp6KAXH-RE"
     },
@@ -637,13 +637,13 @@ const Homecard = () => {
     },
     {
       name: "Snigdha Khanna",
-      society: "NSS SCE",
+      society: "",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=10OkOX5Jz3UQa1cS-4uQg5x-BfMWeb5xt"
     },
     {
       name: "Shreeja Verma",
-      society: "NSS",
+      society: "",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=1rpgmYUQtAXISzaUI5OUl_ZoOcBZoNHzb"
     },
@@ -697,7 +697,7 @@ const Homecard = () => {
     },
     {
       name: "Jyoti Prakash Dixit",
-      society: "NSS SCE",
+      society: "",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=1f9jwOoEdJeaXwM23zbrB-EAXSLogmgRT"
     }

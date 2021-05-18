@@ -19,9 +19,9 @@ const Routes = () => {
             <Route path="/volunteers" exact component={Volunteers}/>
             <Route path="/askforhelp" exact component={AskForHelp}/>
             <Route path="/ourteam" exact component={Developers}/>
-            <Route path="/ourteam/techteam" exact component={TechTeam}/>
-            <Route path="/ourteam/volunteerteam" exact component={volunteerTeam}/>
-            <Route path="/ourteam/societies" exact component={societies}/>
+            <Route path="/techteam" exact component={TechTeam}/>
+            <Route path="/volunteerteam" exact component={volunteerTeam}/>
+            <Route path="/societies" exact component={societies}/>
         </Switch>
     </BrowserRouter>
     );

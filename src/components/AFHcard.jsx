@@ -140,7 +140,7 @@ const Homecard = () => {
           <div className="homeSelect mt-3">
             <div>
               <strong style={{ fontFamily: "Roboto" }}>
-                Are you Covid Positive<span style={{ color: "red" }}> *</span>
+                Is Patient Covid Positive<span style={{ color: "red" }}> *</span>
               </strong>
               <select
                     id="9"
