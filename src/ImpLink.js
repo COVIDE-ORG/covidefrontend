@@ -11,7 +11,7 @@ function App() {
    <>
    <Helmet>
         <title>Important Links</title>
-        <meta name="description" content="This page has comprehensive COVID-19 Resource Link. Users can navigate to more specific information, including those we have selected here." />
+        <meta name="description" content="Important Links for COVID 19 India Resources. Find the most important links for Ambulance, Plasma, Oxygen, Medicine, COVID 19 Helpline and Hospital Beds. All the Important links for COVID 19 in India compiled in a single place." />
     </Helmet>
       <Header/>
       <Card/>

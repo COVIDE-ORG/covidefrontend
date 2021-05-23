@@ -15,7 +15,7 @@ const Homecard = () => {
       name: "Sakshi Sinha",
       society: "TPH",
       "D": "Volunteer Team",
-      image: "https://drive.google.com/thumbnail?id=1_6zqQ47q1DHLXx7GMOuMrF1JBoGjM2me"
+      image: "https://drive.google.com/thumbnail?id=1mHuRTuwABTBe4eKt6xb482YpmHSsc3Z-"
     },
     {
       name: "Mayank Kishor",
@@ -135,7 +135,7 @@ const Homecard = () => {
       name: "Anuradha Mondal",
       society: "TPH",
       "D": "Volunteer Team",
-      image: "https://drive.google.com/thumbnail?id=12N9hD-xP7R9TNxVAuhkaEyh7XlI6A13j"
+      image: "https://drive.google.com/thumbnail?id=1ccn9eDaeYBWR2iAufR2pII2LFoB8s2M2"
     },
     {
       name: "Vanshita Sinha ",
@@ -183,7 +183,7 @@ const Homecard = () => {
       name: "Nitya Jain",
       society: "TPH",
       "D": "Volunteer Team",
-      image: "https://drive.google.com/thumbnail?id=17PuCzQI038XhopTdzwkOr8OzdkliJ8Sa"
+      image: "https://drive.google.com/thumbnail?id=1mxGrnGGZTNy9omF2enBJs5ru2Vk8Amnm"
     },
     {
       name: "Prashoon Chandrakar",
@@ -195,7 +195,7 @@ const Homecard = () => {
       name: "Anoksha Das",
       society: "TPH",
       "D": "Volunteer Team",
-      image: "https://drive.google.com/thumbnail?id=1yqhK62mtSWhZpblH5OzLx2fZUqAnFLum"
+      image: "https://drive.google.com/thumbnail?id=19PGysaZsaYngZs3IiXg8JGYL94XpYsJF"
     },
     {
       name: "Shweta Smriti Tripathi",
@@ -400,6 +400,12 @@ const Homecard = () => {
       society: "TPH",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=1BYpM5tZSXhBr6x7EvZSksDspvbbMZdho"
+    },
+    {
+      name: "Aarati Goenka",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1zvPhHfydfGBFLOD8uaREnYCHlOwXP5qw"
     },
     {
       name: "Siddhartha Snehil ",
@@ -609,7 +615,7 @@ const Homecard = () => {
       name: "Ipsita Dash",
       society: "",
       "D": "Volunteer Team",
-      image: "https://drive.google.com/thumbnail?id=18dBloK72590-hwHyTU8Zi961SHaHoHao"
+      image: "https://drive.google.com/thumbnail?id=1XTN3HtabWWOWEUKTnvJ8vu9EdAsaD0Sy"
     },
     {
       name: "Sandali Khare",
@@ -700,6 +706,18 @@ const Homecard = () => {
       society: "",
       "D": "Volunteer Team",
       image: "https://drive.google.com/thumbnail?id=1f9jwOoEdJeaXwM23zbrB-EAXSLogmgRT"
+    },
+    {
+      name: "Debrup Basu",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1muGmyikMg1dymCDNK__nij-0WoCrU9uU"
+    },
+    {
+      name: "Navajita Singh",
+      society: "TPH",
+      "D": "Volunteer Team",
+      image: "https://drive.google.com/thumbnail?id=1OaeVjSEVoToQzZ7u3Nzinpl-Q88pYvDq"
     }
   ]
 

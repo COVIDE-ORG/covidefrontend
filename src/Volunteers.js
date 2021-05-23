@@ -11,7 +11,7 @@ function App() {
    <>
    <Helmet>
         <title>Contribute</title>
-        <meta name="description" content="Visit this page to share verified leads or join the team." />
+        <meta name="description" content="Contribute towards the COVID 19 Relief efforts in India. Contribute by providing verified leads in India for Ambulance, Oxygen, Plasma, Medicine, Hospital Beds and Volunteers. Contribute by Helping us help people through these tough times of COVID 19 in India." />
     </Helmet>
       <Header/>
       <Card/>

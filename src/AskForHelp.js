@@ -9,7 +9,7 @@ function App() {
    <>
    <Helmet>
         <title>Ask for Help</title>
-        <meta name="description" content="Provide all your details and requirements and we will be contacting you soon" />
+        <meta name="description" content="Ask for Help for COVID 19 in India. Ask for Help in getting Ambulances, Plasma, Oxygen, Hospital Beds, Medicines and Helpline Numbers. Ask for COVID 19 India Help." />
     </Helmet>
       <Header/>
           <AFH/>
